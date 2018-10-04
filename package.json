@@ -1,0 +1,57 @@
+{
+  "name": "eth-token-recover",
+  "version": "1.0.0",
+  "description": "TokenRecover allows the contract owner to recover any ERC20 token sent into the contract for error",
+  "files": [
+    "contracts",
+    "test"
+  ],
+  "scripts": {
+    "test": "scripts/test.sh",
+    "lint:js": "eslint .",
+    "lint:js:fix": "eslint . --fix",
+    "lint:sol": "solium -d .",
+    "lint:sol:fix": "solium -d . --fix",
+    "lint": "npm run lint:js && npm run lint:sol",
+    "lint:fix": "npm run lint:js:fix && npm run lint:sol:fix",
+    "console": "truffle console",
+    "coverage": "scripts/coverage.sh",
+    "version": "scripts/version.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vittominacori/eth-token-recover.git"
+  },
+  "keywords": [
+    "solidity",
+    "ethereum",
+    "smart",
+    "contracts",
+    "token"
+  ],
+  "author": "Vittorio Minacori (https://github.com/vittominacori)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vittominacori/eth-token-recover/issues"
+  },
+  "homepage": "https://github.com/vittominacori/eth-token-recover",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-bignumber": "^2.0.2",
+    "coveralls": "^3.0.1",
+    "dotenv": "^4.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^5.2.1",
+    "eslint-plugin-promise": "^3.8.0",
+    "eslint-plugin-standard": "^3.1.0",
+    "ganache-cli": "6.1.0",
+    "solidity-coverage": "^0.5.4",
+    "solium": "^1.1.8",
+    "truffle": "^4.1.14"
+  },
+  "dependencies": {
+    "openzeppelin-solidity": "^1.12.0"
+  }
+}
