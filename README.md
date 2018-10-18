@@ -11,6 +11,25 @@ TokenRecover allows the contract owner to recover any ERC20 token sent into the 
 There are lots of tokens lost forever into Smart Contracts (see [OMG](https://etherscan.io/address/0xd26114cd6ee289accf82350c8d8487fedb8a0c07) token balances).   
 Each Ethereum contract is a potential token trap for ERC20 tokens. They can't be recovered so it means money losses for end users.
 
+## Install
+
+```bash
+npm install eth-token-recover
+```
+
+## Usage
+
+```solidity
+pragma solidity ^0.4.24;
+
+import "eth-token-recover/contracts/TokenRecover.sol";
+
+
+contract MyContract is TokenRecover {
+  // your stuff
+}
+```
+
 ## Code
 
 This repo contains:
@@ -24,26 +43,6 @@ function recoverERC20(address _tokenAddress,  uint256 _tokens) public onlyOwner 
 ```
 
 Note: only owner can call the `recoverERC20` function so be careful when use on contracts generated from other contracts.
-
-## Install
-
-```bash
-npm install eth-token-recover
-```
-
-
-## Usage
-
-```solidity
-pragma solidity ^0.4.24;
-
-import "eth-token-recover/contracts/TokenRecover.sol";
-
-
-contract MyContract is TokenRecover {
-  // your stuffs
-}
-```
 
 ## Development
 
@@ -99,6 +98,6 @@ Test
 test
 ```
 
-### License
+## License
 
 Code released under the [MIT License](https://github.com/vittominacori/eth-token-recover/blob/master/LICENSE).
