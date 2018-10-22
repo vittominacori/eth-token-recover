@@ -1,6 +1,6 @@
 pragma solidity ^0.4.24;
 
-import "openzeppelin-solidity/contracts/token/ERC20/ERC20Basic.sol";
+import "openzeppelin-solidity/contracts/token/ERC20/IERC20.sol";
 import "openzeppelin-solidity/contracts/ownership/Ownable.sol";
 
 
@@ -13,18 +13,16 @@ contract TokenRecover is Ownable {
 
   /**
    * @dev Remember that only owner can call so be careful when use on contracts generated from other contracts.
-   * @param _tokenAddress address The token contract address
-   * @param _tokens Number of tokens to be sent
-   * @return bool
+   * @param _token address The token contract address
+   * @param _amount Number of tokens to be sent
    */
   function recoverERC20(
-    address _tokenAddress,
-    uint256 _tokens
+    address _token,
+    uint256 _amount
   )
   public
   onlyOwner
-  returns (bool success)
   {
-    return ERC20Basic(_tokenAddress).transfer(owner, _tokens);
+    IERC20(_token).transfer(owner(), _amount);
   }
 }

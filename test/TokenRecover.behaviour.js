@@ -1,4 +1,4 @@
-const { assertRevert } = require('./helpers/assertRevert');
+const shouldFail = require('openzeppelin-solidity/test/helpers/shouldFail');
 
 const BigNumber = web3.BigNumber;
 
@@ -6,36 +6,32 @@ require('chai')
   .use(require('chai-bignumber')(BigNumber))
   .should();
 
-const BasicTokenMock = artifacts.require('BasicTokenMock');
+const ERC20Mock = artifacts.require('ERC20Mock');
 
 function shouldBehaveLikeTokenRecover ([owner, thirdParty]) {
   describe('recoverERC20', function () {
-    const tokenAmount = new BigNumber(1000);
+    const amount = 100;
 
     beforeEach(async function () {
-      this.anotherERC20 = await BasicTokenMock.new(this.instance.address, tokenAmount, { from: owner });
+      this.anotherERC20 = await ERC20Mock.new(this.instance.address, amount, { from: owner });
     });
 
     describe('if owner is calling', function () {
       it('should safe transfer any ERC20 sent for error into the contract', async function () {
-        const contractPre = await this.anotherERC20.balanceOf(this.instance.address);
-        contractPre.should.be.bignumber.equal(tokenAmount);
-        const ownerPre = await this.anotherERC20.balanceOf(owner);
-        ownerPre.should.be.bignumber.equal(0);
+        (await this.anotherERC20.balanceOf(this.instance.address)).should.be.bignumber.equal(amount);
+        (await this.anotherERC20.balanceOf(owner)).should.be.bignumber.equal(0);
 
-        await this.instance.recoverERC20(this.anotherERC20.address, tokenAmount, { from: owner });
+        await this.instance.recoverERC20(this.anotherERC20.address, amount, { from: owner });
 
-        const contractPost = await this.anotherERC20.balanceOf(this.instance.address);
-        contractPost.should.be.bignumber.equal(0);
-        const ownerPost = await this.anotherERC20.balanceOf(owner);
-        ownerPost.should.be.bignumber.equal(tokenAmount);
+        (await this.anotherERC20.balanceOf(this.instance.address)).should.be.bignumber.equal(0);
+        (await this.anotherERC20.balanceOf(owner)).should.be.bignumber.equal(amount);
       });
     });
 
     describe('if third party is calling', function () {
       it('reverts', async function () {
-        await assertRevert(
-          this.instance.recoverERC20(this.anotherERC20.address, tokenAmount, { from: thirdParty })
+        await shouldFail.reverting(
+          this.instance.recoverERC20(this.anotherERC20.address, amount, { from: thirdParty })
         );
       });
     });

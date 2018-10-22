@@ -1,6 +1,6 @@
 {
   "name": "eth-token-recover",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "TokenRecover allows the contract owner to recover any ERC20 token sent into the contract for error",
   "files": [
     "contracts",
@@ -56,6 +56,6 @@
     "vuepress": "^0.14.4"
   },
   "dependencies": {
-    "openzeppelin-solidity": "1.12.0"
+    "openzeppelin-solidity": "2.0.0"
   }
 }

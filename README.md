@@ -36,10 +36,10 @@ This repo contains:
 
 * [TokenRecover.sol](https://github.com/vittominacori/eth-token-recover/blob/master/contracts/TokenRecover.sol)
 
-Contract has a `recoverERC20` function that transfers a `_tokens` amount of `_tokenAddress` token to the contract owner.
+Contract has a `recoverERC20` function that transfers an `_amount` amount of `_token` token to the contract owner.
 
 ```solidity
-function recoverERC20(address _tokenAddress,  uint256 _tokens) public onlyOwner returns (bool success);
+function recoverERC20(address _token, uint256 _amount) public onlyOwner;
 ```
 
 Note: only owner can call the `recoverERC20` function so be careful when use on contracts generated from other contracts.
