@@ -17,7 +17,7 @@ function shouldBehaveLikeTokenRecover ([owner, thirdParty]) {
     });
 
     describe('if owner is calling', function () {
-      it('should safe transfer any ERC20 sent for error into the contract', async function () {
+      it('should recover any ERC20', async function () {
         (await this.anotherERC20.balanceOf(this.instance.address)).should.be.bignumber.equal(amount);
         (await this.anotherERC20.balanceOf(owner)).should.be.bignumber.equal(0);
 

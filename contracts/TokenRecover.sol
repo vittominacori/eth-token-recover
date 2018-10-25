@@ -13,16 +13,16 @@ contract TokenRecover is Ownable {
 
   /**
    * @dev Remember that only owner can call so be careful when use on contracts generated from other contracts.
-   * @param _token address The token contract address
-   * @param _amount Number of tokens to be sent
+   * @param tokenAddress The token contract address
+   * @param tokenAmount Number of tokens to be sent
    */
   function recoverERC20(
-    address _token,
-    uint256 _amount
+    address tokenAddress,
+    uint256 tokenAmount
   )
-  public
-  onlyOwner
+    public
+    onlyOwner
   {
-    IERC20(_token).transfer(owner(), _amount);
+    IERC20(tokenAddress).transfer(owner(), tokenAmount);
   }
 }
