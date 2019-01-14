@@ -20,10 +20,9 @@ npm install eth-token-recover
 ## Usage
 
 ```solidity
-pragma solidity ^0.4.24;
+pragma solidity ^0.4.25;
 
 import "eth-token-recover/contracts/TokenRecover.sol";
-
 
 contract MyContract is TokenRecover {
   // your stuff
@@ -60,7 +59,7 @@ npm install
 
 ### Linter
 
-Use Solium
+Use Ethlint
 
 ```bash
 npm run lint:sol
