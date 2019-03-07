@@ -3,6 +3,7 @@
 [![NPM Package](https://img.shields.io/npm/v/eth-token-recover.svg?style=flat-square)](https://www.npmjs.org/package/eth-token-recover)
 [![Build Status](https://travis-ci.org/vittominacori/eth-token-recover.svg?branch=master)](https://travis-ci.org/vittominacori/eth-token-recover)
 [![Coverage Status](https://coveralls.io/repos/github/vittominacori/eth-token-recover/badge.svg?branch=master)](https://coveralls.io/github/vittominacori/eth-token-recover?branch=master) 
+[![MIT licensed](https://img.shields.io/github/license/vittominacori/eth-token-recover.svg)](https://github.com/vittominacori/eth-token-recover/blob/master/LICENSE) 
 
 TokenRecover allows the contract owner to recover any ERC20 token sent into the contract for error.
 
