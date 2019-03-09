@@ -1,5 +1,7 @@
 const { BN, shouldFail } = require('openzeppelin-test-helpers');
 
+const { shouldBehaveLikeOwnable } = require('./ownership/Ownable.behavior');
+
 const ERC20Mock = artifacts.require('ERC20Mock');
 
 function shouldBehaveLikeTokenRecover ([owner, thirdParty]) {
@@ -29,6 +31,14 @@ function shouldBehaveLikeTokenRecover ([owner, thirdParty]) {
         );
       });
     });
+  });
+
+  context('testing ownership', function () {
+    beforeEach(async function () {
+      this.ownable = this.instance;
+    });
+
+    shouldBehaveLikeOwnable(owner, [thirdParty]);
   });
 }
 
