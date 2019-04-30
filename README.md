@@ -49,7 +49,7 @@ Note: only owner can call the `recoverERC20` function so be careful when use on 
 Install Truffle
 
 ```bash
-npm install -g truffle      // Version 5.0.7+ required
+npm install -g truffle
 ```
 
 ### Install dependencies
