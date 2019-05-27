@@ -1,4 +1,4 @@
-const { constants, expectEvent, shouldFail } = require('openzeppelin-test-helpers');
+const { constants, expectEvent, expectRevert } = require('openzeppelin-test-helpers');
 const { ZERO_ADDRESS } = constants;
 
 function shouldBehaveLikeOwnable (owner, [anyone]) {
@@ -17,11 +17,11 @@ function shouldBehaveLikeOwnable (owner, [anyone]) {
     });
 
     it('should prevent non-owners from transferring', async function () {
-      await shouldFail.reverting(this.ownable.transferOwnership(anyone, { from: anyone }));
+      await expectRevert.unspecified(this.ownable.transferOwnership(anyone, { from: anyone }));
     });
 
     it('should guard ownership against stuck state', async function () {
-      await shouldFail.reverting(this.ownable.transferOwnership(ZERO_ADDRESS, { from: owner }));
+      await expectRevert.unspecified(this.ownable.transferOwnership(ZERO_ADDRESS, { from: owner }));
     });
 
     it('loses owner after renouncement', async function () {
@@ -32,7 +32,7 @@ function shouldBehaveLikeOwnable (owner, [anyone]) {
     });
 
     it('should prevent non-owners from renouncement', async function () {
-      await shouldFail.reverting(this.ownable.renounceOwnership({ from: anyone }));
+      await expectRevert.unspecified(this.ownable.renounceOwnership({ from: anyone }));
     });
   });
 }

@@ -1,4 +1,4 @@
-const { BN, shouldFail } = require('openzeppelin-test-helpers');
+const { BN, expectRevert } = require('openzeppelin-test-helpers');
 
 const { shouldBehaveLikeOwnable } = require('./ownership/Ownable.behavior');
 
@@ -26,7 +26,7 @@ function shouldBehaveLikeTokenRecover ([owner, thirdParty]) {
 
     describe('if third party is calling', function () {
       it('reverts', async function () {
-        await shouldFail.reverting(
+        await expectRevert.unspecified(
           this.instance.recoverERC20(this.anotherERC20.address, amount, { from: thirdParty })
         );
       });
