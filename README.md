@@ -21,7 +21,7 @@ npm install eth-token-recover
 ## Usage
 
 ```solidity
-pragma solidity ^0.5.9;
+pragma solidity ^0.5.10;
 
 import "eth-token-recover/contracts/TokenRecover.sol";
 
