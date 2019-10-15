@@ -21,7 +21,7 @@ npm install eth-token-recover
 ## Usage
 
 ```solidity
-pragma solidity ^0.5.11;
+pragma solidity ^0.5.12;
 
 import "eth-token-recover/contracts/TokenRecover.sol";
 
@@ -45,12 +45,6 @@ function recoverERC20(address tokenAddress, uint256 tokenAmount) public onlyOwne
 Note: only owner can call the `recoverERC20` function so be careful when use on contracts generated from other contracts.
 
 ## Development
-
-Install Truffle
-
-```bash
-npm install -g truffle
-```
 
 ### Install dependencies
 
@@ -78,24 +72,44 @@ Use Eslint and fix
 npm run lint:fix
 ```
 
-### Compile and test the contracts
- 
+## Usage (using Truffle)
+
 Open the Truffle console
 
 ```bash
 npm run console
 ```
 
-Compile 
+### Compile
 
 ```bash
-npm run compile 
+npm run compile
 ```
 
-Test
+### Test 
 
 ```bash
-npm run test
+npm run test 
+```
+
+## Usage (using Buidler)
+
+Open the Buidler console
+
+```bash
+npm run buidler:console
+```
+
+### Compile
+
+```bash
+npm run buidler:compile
+```
+
+### Test 
+
+```bash
+npm run buidler:test 
 ```
 
 ## License
