@@ -72,7 +72,7 @@ Use Eslint and fix
 npm run lint:fix
 ```
 
-## Usage (using Truffle)
+### Usage (using Truffle)
 
 Open the Truffle console
 
@@ -80,19 +80,19 @@ Open the Truffle console
 npm run console
 ```
 
-### Compile
+#### Compile
 
 ```bash
 npm run compile
 ```
 
-### Test 
+#### Test 
 
 ```bash
 npm run test 
 ```
 
-## Usage (using Buidler)
+### Usage (using Buidler)
 
 Open the Buidler console
 
@@ -100,13 +100,13 @@ Open the Buidler console
 npm run buidler:console
 ```
 
-### Compile
+#### Compile
 
 ```bash
 npm run buidler:compile
 ```
 
-### Test 
+#### Test 
 
 ```bash
 npm run buidler:test 
