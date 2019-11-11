@@ -1,6 +1,6 @@
 {
   "name": "eth-token-recover",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "TokenRecover allows the contract owner to recover any ERC20 token sent into the contract for error",
   "files": [
     "contracts",
@@ -48,6 +48,7 @@
     "@nomiclabs/buidler": "^1.0.1",
     "@nomiclabs/buidler-truffle5": "^1.0.1",
     "@nomiclabs/buidler-web3": "^1.0.1",
+    "@openzeppelin/test-helpers": "^0.5.3",
     "chai": "^4.2.0",
     "coveralls": "^3.0.7",
     "eslint": "^6.6.0",
@@ -57,15 +58,14 @@
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "ethereumjs-util": "^6.1.0",
+    "ethereumjs-util": "^6.2.0",
     "ethjs-abi": "^0.2.1",
     "ganache-cli": "^6.7.0",
     "ganache-cli-coverage": "https://github.com/frangio/ganache-cli/releases/download/v6.4.1-coverage/ganache-cli-coverage-6.4.1.tgz",
-    "openzeppelin-test-helpers": "^0.5.1",
     "pify": "^4.0.1",
     "solhint": "^2.3.0",
     "solidity-coverage": "github:rotcivegaf/solidity-coverage#5875f5b7bc74d447f3312c9c0e9fc7814b482477",
-    "truffle": "^5.0.43",
+    "truffle": "^5.0.44",
     "vuepress": "^0.14.11",
     "web3": "^1.2.2"
   }

@@ -1,4 +1,4 @@
-const { BN, expectRevert } = require('openzeppelin-test-helpers');
+const { BN, expectRevert } = require('@openzeppelin/test-helpers');
 
 const { shouldBehaveLikeOwnable } = require('./ownership/Ownable.behavior');
 
