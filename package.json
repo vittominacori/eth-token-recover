@@ -1,6 +1,6 @@
 {
-  "name": "eth-token-recover",
-  "version": "2.4.1",
+  "name": "@vittominacori/eth-token-recover",
+  "version": "2.4.2",
   "description": "TokenRecover allows the contract owner to recover any ERC20 token sent into the contract for error",
   "files": [
     "contracts",
@@ -45,15 +45,15 @@
     "@openzeppelin/contracts": "2.4.0"
   },
   "devDependencies": {
-    "@nomiclabs/buidler": "^1.0.1",
-    "@nomiclabs/buidler-truffle5": "^1.0.1",
-    "@nomiclabs/buidler-web3": "^1.0.1",
-    "@openzeppelin/test-helpers": "^0.5.3",
+    "@nomiclabs/buidler": "^1.0.2",
+    "@nomiclabs/buidler-truffle5": "^1.0.2",
+    "@nomiclabs/buidler-web3": "^1.0.2",
+    "@openzeppelin/test-helpers": "^0.5.4",
     "chai": "^4.2.0",
-    "coveralls": "^3.0.7",
-    "eslint": "^6.6.0",
+    "coveralls": "^3.0.9",
+    "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-mocha-no-only": "^1.1.0",
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-promise": "^4.2.1",
@@ -65,8 +65,8 @@
     "pify": "^4.0.1",
     "solhint": "^2.3.0",
     "solidity-coverage": "github:rotcivegaf/solidity-coverage#5875f5b7bc74d447f3312c9c0e9fc7814b482477",
-    "truffle": "^5.0.44",
+    "truffle": "^5.1.5",
     "vuepress": "^0.14.11",
-    "web3": "^1.2.2"
+    "web3": "^1.2.4"
   }
 }
