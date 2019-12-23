@@ -1,6 +1,6 @@
 # ETH Token Recover
 
-[![NPM Package](https://img.shields.io/npm/v/@vittominacori/eth-token-recover.svg?style=flat-square)](https://www.npmjs.org/package/@vittominacori/eth-token-recover)
+[![NPM Package](https://img.shields.io/npm/v/eth-token-recover.svg?style=flat-square)](https://www.npmjs.org/package/eth-token-recover)
 [![Build Status](https://travis-ci.org/vittominacori/eth-token-recover.svg?branch=master)](https://travis-ci.org/vittominacori/eth-token-recover)
 [![Coverage Status](https://coveralls.io/repos/github/vittominacori/eth-token-recover/badge.svg?branch=master)](https://coveralls.io/github/vittominacori/eth-token-recover?branch=master)
 [![MIT licensed](https://img.shields.io/github/license/vittominacori/eth-token-recover.svg)](https://github.com/vittominacori/eth-token-recover/blob/master/LICENSE)
@@ -15,7 +15,7 @@ Each Ethereum contract is a potential token trap for ERC20 tokens. They can't be
 ## Install
 
 ```bash
-npm install @vittominacori/eth-token-recover
+npm install eth-token-recover
 ```
 
 ## Usage
@@ -23,7 +23,7 @@ npm install @vittominacori/eth-token-recover
 ```solidity
 pragma solidity ^0.5.15;
 
-import "@vittominacori/eth-token-recover/contracts/TokenRecover.sol";
+import "eth-token-recover/contracts/TokenRecover.sol";
 
 contract MyContract is TokenRecover {
   // your stuff
