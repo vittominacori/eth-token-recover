@@ -1,6 +1,6 @@
 {
   "name": "@vittominacori/eth-token-recover",
-  "version": "2.4.2",
+  "version": "2.5.0",
   "description": "TokenRecover allows the contract owner to recover any ERC20 token sent into the contract for error",
   "files": [
     "contracts",
