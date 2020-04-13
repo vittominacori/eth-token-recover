@@ -45,7 +45,7 @@
   },
   "homepage": "https://github.com/vittominacori/eth-token-recover",
   "dependencies": {
-    "@openzeppelin/contracts": "3.0.0-beta.0"
+    "@openzeppelin/contracts": "3.0.0-rc.1"
   },
   "devDependencies": {
     "@nomiclabs/buidler": "^1.1.2",
