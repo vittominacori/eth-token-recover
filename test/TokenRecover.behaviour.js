@@ -1,6 +1,6 @@
 const { BN, expectRevert } = require('@openzeppelin/test-helpers');
 
-const { shouldBehaveLikeOwnable } = require('./ownership/Ownable.behavior');
+const { shouldBehaveLikeOwnable } = require('./access/Ownable.behavior');
 
 const ERC20Mock = artifacts.require('ERC20Mock');
 
@@ -8,8 +8,11 @@ function shouldBehaveLikeTokenRecover ([owner, thirdParty]) {
   describe('recoverERC20', function () {
     const amount = new BN(100);
 
+    const name = 'TEST';
+    const symbol = 'TEST';
+
     beforeEach(async function () {
-      this.anotherERC20 = await ERC20Mock.new(this.instance.address, amount, { from: owner });
+      this.anotherERC20 = await ERC20Mock.new(name, symbol, this.instance.address, amount, { from: owner });
     });
 
     describe('if owner is calling', function () {

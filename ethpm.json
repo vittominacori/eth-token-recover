@@ -1,6 +1,6 @@
 {
   "package_name": "eth-token-recover",
-  "version": "2.5.0",
+  "version": "3.0.0",
   "description": "TokenRecover allows the contract owner to recover any ERC20 token sent into the contract for error",
   "authors": [
     "Vittorio Minacori (https://github.com/vittominacori)"
