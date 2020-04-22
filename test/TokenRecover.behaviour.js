@@ -29,8 +29,9 @@ function shouldBehaveLikeTokenRecover ([owner, thirdParty]) {
 
     describe('if third party is calling', function () {
       it('reverts', async function () {
-        await expectRevert.unspecified(
+        await expectRevert(
           this.instance.recoverERC20(this.anotherERC20.address, amount, { from: thirdParty }),
+          'Ownable: caller is not the owner',
         );
       });
     });

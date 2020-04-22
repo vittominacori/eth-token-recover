@@ -1,6 +1,6 @@
 {
   "name": "eth-token-recover",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "TokenRecover allows the contract owner to recover any ERC20 token sent into the contract for error",
   "files": [
     "contracts",
@@ -66,7 +66,7 @@
     "ethjs-abi": "^0.2.1",
     "ganache-cli": "^6.9.1",
     "pify": "^5.0.0",
-    "solhint": "^2.3.1",
+    "solhint": "^3.0.0-rc.8",
     "solidity-coverage": "^0.7.4",
     "truffle": "^5.1.22",
     "vuepress": "^0.14.11",
