@@ -1,7 +1,7 @@
 # ETH Token Recover
 
 [![NPM Package](https://img.shields.io/npm/v/eth-token-recover.svg?style=flat-square)](https://www.npmjs.org/package/eth-token-recover)
-[![Build Status](https://travis-ci.com/vittominacori/eth-token-recover.svg?branch=master)](https://travis-ci.com/vittominacori/eth-token-recover)
+[![CI](https://github.com/vittominacori/eth-token-recover/workflows/CI/badge.svg?branch=master)](https://github.com/vittominacori/eth-token-recover/actions/)
 [![Coverage Status](https://coveralls.io/repos/github/vittominacori/eth-token-recover/badge.svg?branch=master)](https://coveralls.io/github/vittominacori/eth-token-recover?branch=master)
 [![MIT licensed](https://img.shields.io/github/license/vittominacori/eth-token-recover.svg)](https://github.com/vittominacori/eth-token-recover/blob/master/LICENSE)
 
@@ -77,19 +77,19 @@ npm run lint:fix
 Open the Truffle console
 
 ```bash
-npm run console
+npm run truffle:console
 ```
 
 #### Compile
 
 ```bash
-npm run compile
+npm run truffle:compile
 ```
 
 #### Test
 
 ```bash
-npm run test
+npm run truffle:test
 ```
 
 ### Usage (using Hardhat)
@@ -112,6 +112,12 @@ npm run hardhat:compile
 npm run hardhat:test
 ```
 
+#### Code Coverage
+
+```bash
+npm run hardhat:coverage
+```
+
 ## License
 
-Code released under the [MIT License](https://github.com/vittominacori/eth-token-recover/blob/master/LICENSE).
+Code released under the [MIT License](./LICENSE).
