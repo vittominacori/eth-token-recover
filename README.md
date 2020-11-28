@@ -120,4 +120,4 @@ npm run hardhat:coverage
 
 ## License
 
-Code released under the [MIT License](./LICENSE).
+Code released under the [MIT License](https://github.com/vittominacori/eth-token-recover/blob/master/LICENSE).
