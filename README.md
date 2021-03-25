@@ -39,7 +39,7 @@ This repo contains:
 Contract has a `recoverERC20` function that transfers a `tokenAmount` amount of `tokenAddress` token to the contract owner.
 
 ```solidity
-function recoverERC20(address tokenAddress, uint256 tokenAmount) public onlyOwner;
+function recoverERC20(address tokenAddress, uint256 tokenAmount) public virtual onlyOwner;
 ```
 
 Note: only owner can call the `recoverERC20` function so be careful when use on contracts generated from other contracts.

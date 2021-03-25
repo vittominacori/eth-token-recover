@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 /**
  * @title TokenRecover
  * @author Vittorio Minacori (https://github.com/vittominacori)
- * @dev Allow to recover any ERC20 sent into the contract for error
+ * @dev Allows owner to recover any ERC20 sent into the contract
  */
 contract TokenRecover is Ownable {
 
@@ -17,7 +17,7 @@ contract TokenRecover is Ownable {
      * @param tokenAddress The token contract address
      * @param tokenAmount Number of tokens to be sent
      */
-    function recoverERC20(address tokenAddress, uint256 tokenAmount) public onlyOwner {
+    function recoverERC20(address tokenAddress, uint256 tokenAmount) public virtual onlyOwner {
         IERC20(tokenAddress).transfer(owner(), tokenAmount);
     }
 }
