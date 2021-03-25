@@ -21,7 +21,7 @@ npm install eth-token-recover
 ## Usage
 
 ```solidity
-pragma solidity ^0.7.0;
+pragma solidity ^0.8.0;
 
 import "eth-token-recover/contracts/TokenRecover.sol";
 
@@ -39,7 +39,7 @@ This repo contains:
 Contract has a `recoverERC20` function that transfers a `tokenAmount` amount of `tokenAddress` token to the contract owner.
 
 ```solidity
-function recoverERC20(address tokenAddress, uint256 tokenAmount) public onlyOwner;
+function recoverERC20(address tokenAddress, uint256 tokenAmount) public virtual onlyOwner;
 ```
 
 Note: only owner can call the `recoverERC20` function so be careful when use on contracts generated from other contracts.
