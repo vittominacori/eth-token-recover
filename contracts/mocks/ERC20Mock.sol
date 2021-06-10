@@ -6,8 +6,7 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 // mock class using ERC20
 contract ERC20Mock is ERC20 {
-
-    constructor (
+    constructor(
         string memory name,
         string memory symbol,
         address initialAccount,

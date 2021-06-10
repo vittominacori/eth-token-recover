@@ -11,7 +11,6 @@ import "@openzeppelin/contracts/access/Ownable.sol";
  * @dev Allows owner to recover any ERC20 sent into the contract
  */
 contract TokenRecover is Ownable {
-
     /**
      * @dev Remember that only owner can call so be careful when use on contracts generated from other contracts.
      * @param tokenAddress The token contract address
