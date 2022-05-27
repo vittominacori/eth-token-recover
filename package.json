@@ -60,7 +60,7 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-mocha-no-only": "^1.1.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-promise": "^5.2.0",
     "eslint-plugin-standard": "^5.0.0",
     "ganache-cli": "^6.12.2",
     "hardhat": "^2.9.6",
