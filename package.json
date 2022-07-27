@@ -1,6 +1,6 @@
 {
   "name": "eth-token-recover",
-  "version": "4.7.0",
+  "version": "4.7.1",
   "description": "TokenRecover allows the contract owner to recover any ERC20 token sent into the contract for error",
   "files": [
     "contracts",
@@ -46,7 +46,7 @@
   },
   "homepage": "https://github.com/vittominacori/eth-token-recover",
   "dependencies": {
-    "@openzeppelin/contracts": "4.7.0"
+    "@openzeppelin/contracts": "4.7.1"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ganache": "^2.0.1",
@@ -63,13 +63,13 @@
     "eslint-plugin-promise": "^5.2.0",
     "eslint-plugin-standard": "^5.0.0",
     "ganache-cli": "^6.12.2",
-    "hardhat": "^2.9.9",
+    "hardhat": "^2.10.1",
     "prettier": "^2.7.1",
-    "prettier-plugin-solidity": "^1.0.0-beta.19",
+    "prettier-plugin-solidity": "^1.0.0-dev.23",
     "solhint": "^3.3.7",
     "solhint-plugin-prettier": "^0.0.5",
     "solidity-coverage": "^0.7.21",
-    "truffle": "^5.5.19",
+    "truffle": "^5.5.23",
     "vuepress": "^1.9.7"
   }
 }
