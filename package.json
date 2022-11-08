@@ -1,6 +1,6 @@
 {
   "name": "eth-token-recover",
-  "version": "4.7.3",
+  "version": "4.8.0",
   "description": "TokenRecover allows the contract owner to recover any ERC20 token sent into the contract for error",
   "files": [
     "contracts",
@@ -46,13 +46,13 @@
   },
   "homepage": "https://github.com/vittominacori/eth-token-recover",
   "dependencies": {
-    "@openzeppelin/contracts": "4.7.3"
+    "@openzeppelin/contracts": "4.8.0"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ganache": "^2.0.1",
-    "@nomiclabs/hardhat-truffle5": "^2.0.6",
+    "@nomiclabs/hardhat-truffle5": "^2.0.7",
     "@nomiclabs/hardhat-web3": "^2.0.0",
-    "@openzeppelin/test-helpers": "^0.5.15",
+    "@openzeppelin/test-helpers": "^0.5.16",
     "@vuepress/plugin-google-analytics": "^1.9.7",
     "chai": "4.3.4",
     "eslint": "^7.32.0",
@@ -63,15 +63,15 @@
     "eslint-plugin-promise": "^5.2.0",
     "eslint-plugin-standard": "^5.0.0",
     "ganache-cli": "^6.12.2",
-    "hardhat": "^2.10.1",
+    "hardhat": "^2.12.2",
     "prettier": "^2.7.1",
-    "prettier-plugin-solidity": "^1.0.0-beta.24",
-    "sol2uml": "^2.1.5",
+    "prettier-plugin-solidity": "^1.0.0-rc.1",
+    "sol2uml": "^2.2.6",
     "solhint": "^3.3.7",
     "solhint-plugin-prettier": "^0.0.5",
-    "solidity-coverage": "^0.7.21",
+    "solidity-coverage": "^0.8.2",
     "surya": "^0.4.6",
-    "truffle": "^5.5.25",
+    "truffle": "^5.6.4",
     "vuepress": "^1.9.7"
   }
 }
