@@ -1,4 +1,5 @@
 const { BN, expectRevert } = require('@openzeppelin/test-helpers');
+const { expect } = require('chai');
 
 const { shouldBehaveLikeOwnable } = require('./access/Ownable.behavior');
 
@@ -17,13 +18,13 @@ function shouldBehaveLikeTokenRecover ([owner, thirdParty]) {
 
     describe('if owner is calling', function () {
       it('should recover any ERC20', async function () {
-        (await this.anotherERC20.balanceOf(this.instance.address)).should.be.bignumber.equal(amount);
-        (await this.anotherERC20.balanceOf(owner)).should.be.bignumber.equal(new BN(0));
+        expect(await this.anotherERC20.balanceOf(this.instance.address)).to.be.bignumber.equal(amount);
+        expect(await this.anotherERC20.balanceOf(owner)).to.be.bignumber.equal(new BN(0));
 
         await this.instance.recoverERC20(this.anotherERC20.address, amount, { from: owner });
 
-        (await this.anotherERC20.balanceOf(this.instance.address)).should.be.bignumber.equal(new BN(0));
-        (await this.anotherERC20.balanceOf(owner)).should.be.bignumber.equal(amount);
+        expect(await this.anotherERC20.balanceOf(this.instance.address)).to.be.bignumber.equal(new BN(0));
+        expect(await this.anotherERC20.balanceOf(owner)).to.be.bignumber.equal(amount);
       });
     });
 
