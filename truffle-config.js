@@ -8,13 +8,6 @@ const solcStable = {
   },
 };
 
-const solcNightly = {
-  version: 'nightly',
-  docker: true,
-};
-
-const useSolcNightly = process.env.SOLC_NIGHTLY === 'true';
-
 module.exports = {
   networks: {
     development: {
@@ -31,7 +24,7 @@ module.exports = {
     },
   },
   compilers: {
-    solc: useSolcNightly ? solcNightly : solcStable,
+    solc: solcStable,
   },
   plugins: ['solidity-coverage'],
 };

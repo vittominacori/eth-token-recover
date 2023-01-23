@@ -26,8 +26,6 @@
     "lint:js:fix": "eslint --ignore-path .gitignore . --fix",
     "lint:sol": "prettier --loglevel warn --ignore-path .gitignore '{contracts,test}/**/*.sol' --check && solhint '{contracts,test}/**/*.sol'",
     "lint:sol:fix": "prettier --loglevel warn --ignore-path .gitignore '{contracts,test}/**/*.sol' --write",
-    "flat": "scripts/flat.sh",
-    "analyze": "scripts/analyze.sh",
     "docs:dev": "export NODE_OPTIONS=--openssl-legacy-provider && vuepress dev docs",
     "docs:build": "export NODE_OPTIONS=--openssl-legacy-provider && vuepress build docs",
     "docs:deploy": "export NODE_OPTIONS=--openssl-legacy-provider && vuepress build docs && sh docs/deploy/deploy.sh"
@@ -65,11 +63,9 @@
     "hardhat-exposed": "^0.3.0",
     "prettier": "^2.8.3",
     "prettier-plugin-solidity": "^1.1.1",
-    "sol2uml": "^2.4.2",
     "solhint": "^3.3.8",
     "solhint-plugin-prettier": "^0.0.5",
     "solidity-coverage": "^0.8.2",
-    "surya": "^0.4.6",
     "truffle": "^5.7.3",
     "vuepress": "^1.9.7"
   }
