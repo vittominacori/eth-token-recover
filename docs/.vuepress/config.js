@@ -5,7 +5,7 @@ module.exports = {
   description: 'TokenRecover allows the contract owner to recover any ERC20 token sent into the contract for error.',
   base: '/eth-token-recover/',
   plugins: [
-    ['@vuepress/google-analytics', {
+    ['google-gtag', {
       ga: vars.gaId,
     }],
   ],
