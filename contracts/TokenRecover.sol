@@ -7,7 +7,6 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 /**
  * @title TokenRecover
- * @author Vittorio Minacori (https://github.com/vittominacori)
  * @dev Allows owner to recover any ERC20 sent into the contract
  */
 contract TokenRecover is Ownable {
