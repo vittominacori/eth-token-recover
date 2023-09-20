@@ -5,13 +5,14 @@ module.exports = {
   description: 'TokenRecover allows the contract owner to recover any ERC20 token sent into the contract for error.',
   base: '/eth-token-recover/',
   plugins: [
-    ['google-gtag', {
-      ga: vars.gaId,
-    }],
+    [
+      'google-gtag',
+      {
+        ga: vars.gaId,
+      },
+    ],
   ],
-  head: [
-    ['link', { rel: 'icon', href: '/favicon.ico' }],
-  ],
+  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
   themeConfig: {
     repo: 'vittominacori/eth-token-recover',
     sidebar: 'auto',

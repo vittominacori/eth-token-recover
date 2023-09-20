@@ -15,10 +15,7 @@ function shouldBehaveLikeOwnable (owner, [other]) {
     });
 
     it('should prevent non-owners from transferring', async function () {
-      await expectRevert(
-        this.ownable.transferOwnership(other, { from: other }),
-        'Ownable: caller is not the owner',
-      );
+      await expectRevert(this.ownable.transferOwnership(other, { from: other }), 'Ownable: caller is not the owner');
     });
 
     it('should guard access against stuck state', async function () {
@@ -36,10 +33,7 @@ function shouldBehaveLikeOwnable (owner, [other]) {
     });
 
     it('should prevent non-owners from renouncement', async function () {
-      await expectRevert(
-        this.ownable.renounceOwnership({ from: other }),
-        'Ownable: caller is not the owner',
-      );
+      await expectRevert(this.ownable.renounceOwnership({ from: other }), 'Ownable: caller is not the owner');
     });
   });
 }
