@@ -1,4 +1,5 @@
 const { BN, expectRevert } = require('@openzeppelin/test-helpers');
+const { expect } = require('chai');
 
 const { shouldBehaveLikeOwnable } = require('./access/Ownable.behavior');
 
