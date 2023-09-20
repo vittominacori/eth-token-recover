@@ -5,7 +5,7 @@ const { shouldBehaveLikeOwnable } = require('./access/Ownable.behavior');
 
 const ERC20Mock = artifacts.require('ERC20Mock');
 
-function shouldBehaveLikeTokenRecover ([owner, thirdParty]) {
+function shouldBehaveLikeTokenRecover([owner, thirdParty]) {
   describe('recoverERC20', function () {
     const amount = new BN(100);
 

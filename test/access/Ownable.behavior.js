@@ -1,7 +1,7 @@
 const { constants, expectEvent, expectRevert } = require('@openzeppelin/test-helpers');
 const { ZERO_ADDRESS } = constants;
 
-function shouldBehaveLikeOwnable (owner, [other]) {
+function shouldBehaveLikeOwnable(owner, [other]) {
   describe('as an ownable', function () {
     it('should have an owner', async function () {
       expect(await this.ownable.owner()).to.equal(owner);
