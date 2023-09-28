@@ -52,7 +52,7 @@ Note: only owner can call the `recoverERC20` function so be careful when use on 
 npm install
 ```
 
-### Usage (using Hardhat)
+### Usage
 
 Open the console
 
