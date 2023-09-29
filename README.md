@@ -20,7 +20,7 @@ npm install eth-token-recover
 
 ## Usage
 
-### Provide your defined owner.
+### Provide your defined owner
 
 ```solidity
 pragma solidity ^0.8.0;
@@ -37,12 +37,12 @@ contract MyContract is TokenRecover {
 }
 ```
 
-### Use deployer as owner.
+### Use deployer as owner
 
 ```solidity
 pragma solidity ^0.8.0;
 
-import "eth-token-recover/contracts/TokenRecover.sol";
+import {TokenRecover} from "eth-token-recover/contracts/TokenRecover.sol";
 
 contract MyContract is TokenRecover {
 
