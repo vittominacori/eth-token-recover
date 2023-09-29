@@ -1,38 +1,40 @@
-const { BN, expectRevert } = require('@openzeppelin/test-helpers');
+const { BN } = require('@openzeppelin/test-helpers');
+const { expectRevertCustomError } = require('./helpers/customError');
 const { expect } = require('chai');
 
 const { shouldBehaveLikeOwnable } = require('./access/Ownable.behavior');
 
-const ERC20Mock = artifacts.require('ERC20Mock');
+const ERC20 = artifacts.require('$ERC20Mock');
 
-function shouldBehaveLikeTokenRecover([owner, thirdParty]) {
+function shouldBehaveLikeTokenRecover([owner, other]) {
   describe('recoverERC20', function () {
     const amount = new BN(100);
 
-    const name = 'TEST';
-    const symbol = 'TEST';
-
     beforeEach(async function () {
-      this.anotherERC20 = await ERC20Mock.new(name, symbol, this.instance.address, amount, { from: owner });
+      this.erc20ToRecover = await ERC20.new();
+      await this.erc20ToRecover.$_mint(owner, amount);
+
+      await this.erc20ToRecover.transfer(this.instance.address, amount, { from: owner });
     });
 
     describe('if owner is calling', function () {
       it('should recover any ERC20', async function () {
-        expect(await this.anotherERC20.balanceOf(this.instance.address)).to.be.bignumber.equal(amount);
-        expect(await this.anotherERC20.balanceOf(owner)).to.be.bignumber.equal(new BN(0));
+        expect(await this.erc20ToRecover.balanceOf(this.instance.address)).to.be.bignumber.equal(amount);
+        expect(await this.erc20ToRecover.balanceOf(owner)).to.be.bignumber.equal('0');
 
-        await this.instance.recoverERC20(this.anotherERC20.address, amount, { from: owner });
+        await this.instance.recoverERC20(this.erc20ToRecover.address, amount, { from: owner });
 
-        expect(await this.anotherERC20.balanceOf(this.instance.address)).to.be.bignumber.equal(new BN(0));
-        expect(await this.anotherERC20.balanceOf(owner)).to.be.bignumber.equal(amount);
+        expect(await this.erc20ToRecover.balanceOf(this.instance.address)).to.be.bignumber.equal('0');
+        expect(await this.erc20ToRecover.balanceOf(owner)).to.be.bignumber.equal(amount);
       });
     });
 
-    describe('if third party is calling', function () {
+    describe('if non-owners are calling', function () {
       it('reverts', async function () {
-        await expectRevert(
-          this.instance.recoverERC20(this.anotherERC20.address, amount, { from: thirdParty }),
-          'Ownable: caller is not the owner',
+        await expectRevertCustomError(
+          this.instance.recoverERC20(this.erc20ToRecover.address, amount, { from: other }),
+          'OwnableUnauthorizedAccount',
+          [other],
         );
       });
     });
@@ -43,7 +45,7 @@ function shouldBehaveLikeTokenRecover([owner, thirdParty]) {
       this.ownable = this.instance;
     });
 
-    shouldBehaveLikeOwnable(owner, [thirdParty]);
+    shouldBehaveLikeOwnable(owner, other);
   });
 }
 
