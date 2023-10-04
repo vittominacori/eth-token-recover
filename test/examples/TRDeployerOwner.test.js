@@ -4,7 +4,9 @@ const { shouldBehaveLikeTokenRecover } = require('../TokenRecover.behaviour');
 
 const TokenRecover = artifacts.require('$TRDeployerOwner');
 
-contract('TRDeployerOwner', function ([owner, other]) {
+contract('TRDeployerOwner', function (accounts) {
+  const [owner, other] = accounts;
+
   describe('creating valid contract', function () {
     it('deployer should be owner', async function () {
       const tokenRecover = await TokenRecover.new({ from: owner });
@@ -18,6 +20,6 @@ contract('TRDeployerOwner', function ([owner, other]) {
       this.instance = await TokenRecover.new();
     });
 
-    shouldBehaveLikeTokenRecover([owner, other]);
+    shouldBehaveLikeTokenRecover(owner, other);
   });
 });

@@ -5,7 +5,9 @@ const { shouldBehaveLikeTokenRecover } = require('../TokenRecover.behaviour');
 
 const TokenRecover = artifacts.require('$TRProvidedOwner');
 
-contract('TRProvidedOwner', function ([owner, other]) {
+contract('TRProvidedOwner', function (accounts) {
+  const [owner, other] = accounts;
+
   describe('creating valid contract', function () {
     it('rejects zero address for initialOwner', async function () {
       await expectRevertCustomError(TokenRecover.new(constants.ZERO_ADDRESS, { from: owner }), 'OwnableInvalidOwner', [
@@ -19,6 +21,6 @@ contract('TRProvidedOwner', function ([owner, other]) {
       this.instance = await TokenRecover.new(owner);
     });
 
-    shouldBehaveLikeTokenRecover([owner, other]);
+    shouldBehaveLikeTokenRecover(owner, other);
   });
 });
