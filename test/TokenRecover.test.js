@@ -1,11 +1,13 @@
-const { shouldBehaveLikeTokenRecover } = require('./TokenRecover.behaviour');
+const { shouldBehaveLikeTokenRecover } = require('./TokenRecover.behavior');
 
-const TokenRecover = artifacts.require('TokenRecover');
+const TokenRecover = artifacts.require('$TokenRecover');
 
-contract('TokenRecover', function ([owner, thirdParty]) {
+contract('TokenRecover', function (accounts) {
+  const [owner, other] = accounts;
+
   beforeEach(async function () {
-    this.instance = await TokenRecover.new({ from: owner });
+    this.instance = await TokenRecover.new(owner);
   });
 
-  shouldBehaveLikeTokenRecover([owner, thirdParty]);
+  shouldBehaveLikeTokenRecover(owner, other);
 });
