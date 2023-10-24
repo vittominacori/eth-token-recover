@@ -1,7 +1,7 @@
 const { constants } = require('@openzeppelin/test-helpers');
 const { expectRevertCustomError } = require('../helpers/customError');
 
-const { shouldBehaveLikeTokenRecover } = require('../TokenRecover.behavior');
+const { shouldBehaveLikeTokenRecover } = require('../behaviors/TokenRecover.behavior');
 
 const TokenRecover = artifacts.require('$TRProvidedOwner');
 

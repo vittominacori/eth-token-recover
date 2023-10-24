@@ -1,4 +1,4 @@
-const { shouldBehaveLikeTokenRecover } = require('./TokenRecover.behavior');
+const { shouldBehaveLikeTokenRecover } = require('./behaviors/TokenRecover.behavior');
 
 const TokenRecover = artifacts.require('$TokenRecover');
 
