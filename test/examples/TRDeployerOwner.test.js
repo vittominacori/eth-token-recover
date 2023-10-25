@@ -2,14 +2,14 @@ const { expect } = require('chai');
 
 const { shouldBehaveLikeTokenRecover } = require('../TokenRecover.behavior');
 
-const TokenRecover = artifacts.require('$TRDeployerOwner');
+const TRDeployerOwner = artifacts.require('$TRDeployerOwner');
 
 contract('TRDeployerOwner', function (accounts) {
   const [owner, other] = accounts;
 
   describe('creating valid contract', function () {
     it('deployer should be owner', async function () {
-      const tokenRecover = await TokenRecover.new({ from: owner });
+      const tokenRecover = await TRDeployerOwner.new({ from: owner });
 
       expect(await tokenRecover.owner()).to.equal(owner);
     });
@@ -17,7 +17,7 @@ contract('TRDeployerOwner', function (accounts) {
 
   describe('once deployed', function () {
     beforeEach(async function () {
-      this.instance = await TokenRecover.new();
+      this.instance = await TRDeployerOwner.new();
     });
 
     shouldBehaveLikeTokenRecover(owner, other);

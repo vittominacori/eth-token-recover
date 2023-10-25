@@ -14,8 +14,7 @@ contract('ERC20Recover', function (accounts) {
 
     this.erc20ToRecover = await ERC20.new();
     await this.erc20ToRecover.$_mint(receiver, amount);
-
-    await this.erc20ToRecover.transfer(this.instance.address, amount, { from: receiver });
+    await this.erc20ToRecover.transfer(this.instance.address, amount);
   });
 
   shouldBehaveLikeERC20Recover(receiver, amount);
