@@ -308,14 +308,17 @@ pragma solidity ^0.8.20;
 
 /**
  * @title RecoverERC721
- * @dev Allows to recover any ERC721 sent into the contract and send to a receiver.
+ * @dev Allows to recover any ERC20 sent into the contract and send them to a receiver.
  */
 abstract contract RecoverERC721 {
     /**
-     * @dev Recover the `tokenId` of the `tokenAddress` ERC721 stuck into this contract
-     * and send to `tokenReceiver` address.
-     * @param tokenAddress The token contract address to recover.
-     * @param tokenReceiver The address who will receive the recovered token.
+     * @dev Recovers the `tokenId` of the ERC721 `tokenAddress` locked into this contract
+     * and sends it to the `tokenReceiver` address.
+     *
+     * WARNING: it allows everyone to recover tokens. Access controls MUST be defined in derived contracts.
+     *
+     * @param tokenAddress The contract address of the token to recover.
+     * @param tokenReceiver The address that will receive the recovered token.
      * @param tokenId The identifier for the NFT to be recovered.
      * @param data Additional data with no specified format.
      */
@@ -338,7 +341,7 @@ pragma solidity ^0.8.20;
 
 /**
  * @title ERC721Recover
- * @dev Allows token owner to recover any ERC721 sent into the contract and send to a receiver.
+ * @dev Allows token owner to recover any ERC721 sent into the contract and send them to a receiver.
  */
 abstract contract ERC721Recover is Ownable, RecoverERC721 {
     /**
@@ -347,10 +350,13 @@ abstract contract ERC721Recover is Ownable, RecoverERC721 {
     constructor(address originalOwner) Ownable(originalOwner) {}
 
     /**
-     * @dev Recover the `tokenId` of the `tokenAddress` ERC721 stuck into this contract
-     * and send to `tokenReceiver` address.
-     * @param tokenAddress The token contract address to recover.
-     * @param tokenReceiver The address who will receive the recovered token.
+     * @dev Recovers the `tokenId` of the ERC721 `tokenAddress` locked into this contract
+     * and sends it to the `tokenReceiver` address.
+     *
+     * NOTE: restricting access to owner only. See `RecoverERC721::_recoverERC721`.
+     *
+     * @param tokenAddress The contract address of the token to recover.
+     * @param tokenReceiver The address that will receive the recovered token.
      * @param tokenId The identifier for the NFT to be recovered.
      * @param data Additional data with no specified format.
      */
