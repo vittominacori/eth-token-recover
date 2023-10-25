@@ -1,9 +1,9 @@
 const { expect } = require('chai');
 
-function shouldBehaveLikeNFTRecover(receiver, tokenId) {
+function shouldBehaveLikeERC721Recover(receiver, tokenId) {
   const data = '0x42';
 
-  context('as a NFTRecover', function () {
+  context('like an ERC721Recover', function () {
     describe('_recoverERC721', function () {
       it('transfer the ERC721 token to receiver', async function () {
         expect(await this.erc721ToRecover.ownerOf(tokenId)).to.be.equal(this.instance.address);
@@ -23,5 +23,5 @@ function shouldBehaveLikeNFTRecover(receiver, tokenId) {
 }
 
 module.exports = {
-  shouldBehaveLikeNFTRecover,
+  shouldBehaveLikeERC721Recover,
 };

@@ -5,13 +5,13 @@ pragma solidity ^0.8.20;
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
 import {ERC20Recover} from "./recover/ERC20Recover.sol";
-import {NFTRecover} from "./recover/NFTRecover.sol";
+import {ERC721Recover} from "./recover/ERC721Recover.sol";
 
 /**
  * @title TokenRecover
- * @dev Allows token owner to recover any ERC20, ERC721 or ERC1155 sent into the contract and send to a receiver.
+ * @dev Allows token owner to recover any ERC20 or ERC721 sent into the contract and send to a receiver.
  */
-abstract contract TokenRecover is Ownable, ERC20Recover, NFTRecover {
+abstract contract TokenRecover is Ownable, ERC20Recover, ERC721Recover {
     /**
      * @dev Initializes the contract setting the address provided by the deployer as the initial owner.
      */

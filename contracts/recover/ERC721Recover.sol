@@ -5,10 +5,10 @@ pragma solidity ^0.8.20;
 import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
 /**
- * @title NFTRecover
- * @dev Allows to recover any ERC721 or ERC1155 sent into the contract and send to a receiver.
+ * @title ERC721Recover
+ * @dev Allows to recover any ERC721 sent into the contract and send to a receiver.
  */
-abstract contract NFTRecover {
+abstract contract ERC721Recover {
     /**
      * @dev Recover the `tokenId` of the `tokenAddress` ERC721 stuck into this contract
      * and send to `tokenReceiver` address.
