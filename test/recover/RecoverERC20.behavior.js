@@ -1,7 +1,7 @@
 const { expect } = require('chai');
 
-function shouldBehaveLikeERC20Recover(receiver, amount) {
-  context('like an ERC20Recover', function () {
+function shouldBehaveLikeRecoverERC20(receiver, amount) {
+  context('like a RecoverERC20', function () {
     describe('_recoverERC20', function () {
       it('transfer the ERC20 tokens to receiver', async function () {
         expect(await this.erc20ToRecover.balanceOf(this.instance.address)).to.be.bignumber.equal(amount);
@@ -17,5 +17,5 @@ function shouldBehaveLikeERC20Recover(receiver, amount) {
 }
 
 module.exports = {
-  shouldBehaveLikeERC20Recover,
+  shouldBehaveLikeRecoverERC20,
 };

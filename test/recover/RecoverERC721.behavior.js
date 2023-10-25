@@ -1,9 +1,9 @@
 const { expect } = require('chai');
 
-function shouldBehaveLikeERC721Recover(receiver, tokenId) {
+function shouldBehaveLikeRecoverERC721(receiver, tokenId) {
   const data = '0x42';
 
-  context('like an ERC721Recover', function () {
+  context('like an RecoverERC721', function () {
     describe('_recoverERC721', function () {
       it('transfer the ERC721 token to receiver', async function () {
         expect(await this.erc721ToRecover.ownerOf(tokenId)).to.be.equal(this.instance.address);
@@ -23,5 +23,5 @@ function shouldBehaveLikeERC721Recover(receiver, tokenId) {
 }
 
 module.exports = {
-  shouldBehaveLikeERC721Recover,
+  shouldBehaveLikeRecoverERC721,
 };

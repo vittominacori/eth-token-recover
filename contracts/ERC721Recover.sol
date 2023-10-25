@@ -2,13 +2,20 @@
 
 pragma solidity ^0.8.20;
 
-import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+
+import {RecoverERC721} from "./recover/RecoverERC721.sol";
 
 /**
  * @title ERC721Recover
- * @dev Allows to recover any ERC721 sent into the contract and send to a receiver.
+ * @dev Allows token owner to recover any ERC721 sent into the contract and send to a receiver.
  */
-abstract contract ERC721Recover {
+abstract contract ERC721Recover is Ownable, RecoverERC721 {
+    /**
+     * @dev Initializes the contract setting the address provided by the deployer as the initial owner.
+     */
+    constructor(address originalOwner) Ownable(originalOwner) {}
+
     /**
      * @dev Recover the `tokenId` of the `tokenAddress` ERC721 stuck into this contract
      * and send to `tokenReceiver` address.
@@ -17,12 +24,12 @@ abstract contract ERC721Recover {
      * @param tokenId The identifier for the NFT to be recovered.
      * @param data Additional data with no specified format.
      */
-    function _recoverERC721(
+    function recoverERC721(
         address tokenAddress,
         address tokenReceiver,
         uint256 tokenId,
         bytes memory data
-    ) internal virtual {
-        IERC721(tokenAddress).safeTransferFrom(address(this), tokenReceiver, tokenId, data);
+    ) external virtual onlyOwner {
+        _recoverERC721(tokenAddress, tokenReceiver, tokenId, data);
     }
 }

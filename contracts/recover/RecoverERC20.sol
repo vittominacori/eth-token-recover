@@ -5,10 +5,10 @@ pragma solidity ^0.8.20;
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 /**
- * @title ERC20Recover
+ * @title RecoverERC20
  * @dev Allows to recover any ERC20 sent into the contract and send to a receiver.
  */
-abstract contract ERC20Recover {
+abstract contract RecoverERC20 {
     /**
      * @dev Recover a `tokenAmount` of the `tokenAddress` ERC20 stuck into this contract
      * and send to `tokenReceiver` address.
