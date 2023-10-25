@@ -1,7 +1,7 @@
 {
   "name": "eth-token-recover",
-  "version": "5.1.0",
-  "description": "TokenRecover allows the contract owner to recover any ERC20 token sent into the contract for error",
+  "version": "6.0.0",
+  "description": "TokenRecover allows the contract owner to recover any ERC20 or NFT token sent into the contract for error",
   "files": [
     "contracts",
     "test"
@@ -62,7 +62,7 @@
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-mocha-no-only": "^1.1.1",
     "graphlib": "^2.1.8",
-    "hardhat": "^2.18.2",
+    "hardhat": "^2.18.3",
     "hardhat-exposed": "^0.3.13",
     "hardhat-gas-reporter": "^1.0.9",
     "prettier": "^3.0.3",
