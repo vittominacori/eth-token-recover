@@ -27,6 +27,20 @@
 | └ | transferOwnership | Public ❗️ | 🛑  | onlyOwner |
 | └ | _transferOwnership | Internal 🔒 | 🛑  | |
 ||||||
+| **IERC165** | Interface |  |||
+| └ | supportsInterface | External ❗️ |   |NO❗️ |
+||||||
+| **IERC721** | Interface | IERC165 |||
+| └ | balanceOf | External ❗️ |   |NO❗️ |
+| └ | ownerOf | External ❗️ |   |NO❗️ |
+| └ | safeTransferFrom | External ❗️ | 🛑  |NO❗️ |
+| └ | safeTransferFrom | External ❗️ | 🛑  |NO❗️ |
+| └ | transferFrom | External ❗️ | 🛑  |NO❗️ |
+| └ | approve | External ❗️ | 🛑  |NO❗️ |
+| └ | setApprovalForAll | External ❗️ | 🛑  |NO❗️ |
+| └ | getApproved | External ❗️ |   |NO❗️ |
+| └ | isApprovedForAll | External ❗️ |   |NO❗️ |
+||||||
 | **IERC20** | Interface |  |||
 | └ | totalSupply | External ❗️ |   |NO❗️ |
 | └ | balanceOf | External ❗️ |   |NO❗️ |
@@ -35,12 +49,16 @@
 | └ | approve | External ❗️ | 🛑  |NO❗️ |
 | └ | transferFrom | External ❗️ | 🛑  |NO❗️ |
 ||||||
-| **ERC20Recover** | Implementation | Ownable |||
-| └ | <Constructor> | Public ❗️ | 🛑  | Ownable |
-| └ | recoverERC20 | Public ❗️ | 🛑  | onlyOwner |
+| **RecoverERC20** | Implementation |  |||
+| └ | _recoverERC20 | Internal 🔒 | 🛑  | |
 ||||||
-| **TokenRecover** | Implementation | ERC20Recover |||
-| └ | <Constructor> | Public ❗️ | 🛑  | ERC20Recover |
+| **RecoverERC721** | Implementation |  |||
+| └ | _recoverERC721 | Internal 🔒 | 🛑  | |
+||||||
+| **TokenRecover** | Implementation | Ownable, RecoverERC20, RecoverERC721 |||
+| └ | <Constructor> | Public ❗️ | 🛑  | Ownable |
+| └ | recoverERC20 | External ❗️ | 🛑  | onlyOwner |
+| └ | recoverERC721 | External ❗️ | 🛑  | onlyOwner |
 
 
 ### Legend

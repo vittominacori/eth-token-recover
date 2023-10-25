@@ -5,7 +5,7 @@
 
 |  File Name  |  SHA-1 Hash  |
 |-------------|--------------|
-| dist/ERC20Recover.dist.sol | [object Promise] |
+| dist/ERC721Recover.dist.sol | [object Promise] |
 
 
 ### Contracts Description Table
@@ -27,20 +27,26 @@
 | └ | transferOwnership | Public ❗️ | 🛑  | onlyOwner |
 | └ | _transferOwnership | Internal 🔒 | 🛑  | |
 ||||||
-| **IERC20** | Interface |  |||
-| └ | totalSupply | External ❗️ |   |NO❗️ |
+| **IERC165** | Interface |  |||
+| └ | supportsInterface | External ❗️ |   |NO❗️ |
+||||||
+| **IERC721** | Interface | IERC165 |||
 | └ | balanceOf | External ❗️ |   |NO❗️ |
-| └ | transfer | External ❗️ | 🛑  |NO❗️ |
-| └ | allowance | External ❗️ |   |NO❗️ |
-| └ | approve | External ❗️ | 🛑  |NO❗️ |
+| └ | ownerOf | External ❗️ |   |NO❗️ |
+| └ | safeTransferFrom | External ❗️ | 🛑  |NO❗️ |
+| └ | safeTransferFrom | External ❗️ | 🛑  |NO❗️ |
 | └ | transferFrom | External ❗️ | 🛑  |NO❗️ |
+| └ | approve | External ❗️ | 🛑  |NO❗️ |
+| └ | setApprovalForAll | External ❗️ | 🛑  |NO❗️ |
+| └ | getApproved | External ❗️ |   |NO❗️ |
+| └ | isApprovedForAll | External ❗️ |   |NO❗️ |
 ||||||
-| **RecoverERC20** | Implementation |  |||
-| └ | _recoverERC20 | Internal 🔒 | 🛑  | |
+| **RecoverERC721** | Implementation |  |||
+| └ | _recoverERC721 | Internal 🔒 | 🛑  | |
 ||||||
-| **ERC20Recover** | Implementation | Ownable, RecoverERC20 |||
+| **ERC721Recover** | Implementation | Ownable, RecoverERC721 |||
 | └ | <Constructor> | Public ❗️ | 🛑  | Ownable |
-| └ | recoverERC20 | External ❗️ | 🛑  | onlyOwner |
+| └ | recoverERC721 | External ❗️ | 🛑  | onlyOwner |
 
 
 ### Legend

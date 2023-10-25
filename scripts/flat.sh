@@ -2,7 +2,7 @@
 
 echo "flattening code..."
 
-for contract in "ERC20Recover" "TokenRecover"
+for contract in "ERC20Recover" "ERC721Recover" "TokenRecover"
 do
   npx hardhat flatten contracts/$contract.sol > dist/$contract.dist.sol
 done

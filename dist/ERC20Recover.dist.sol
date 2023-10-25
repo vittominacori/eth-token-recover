@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-// Sources flattened with hardhat v2.18.2 https://hardhat.org
+// Sources flattened with hardhat v2.18.3 https://hardhat.org
 
 
 
@@ -217,30 +217,55 @@ interface IERC20 {
 }
 
 
+// File contracts/recover/RecoverERC20.sol
+
+// Original license: SPDX_License_Identifier: MIT
+
+pragma solidity ^0.8.20;
+
+/**
+ * @title RecoverERC20
+ * @dev Allows to recover any ERC20 sent into the contract and send to a receiver.
+ */
+abstract contract RecoverERC20 {
+    /**
+     * @dev Recover a `tokenAmount` of the `tokenAddress` ERC20 stuck into this contract
+     * and send to `tokenReceiver` address.
+     * @param tokenAddress The token contract address to recover.
+     * @param tokenReceiver The address who will receive the recovered tokens.
+     * @param tokenAmount Number of tokens to be recovered.
+     */
+    function _recoverERC20(address tokenAddress, address tokenReceiver, uint256 tokenAmount) internal virtual {
+        // slither-disable-next-line unchecked-transfer
+        IERC20(tokenAddress).transfer(tokenReceiver, tokenAmount);
+    }
+}
+
+
 // File contracts/ERC20Recover.sol
 
 // Original license: SPDX_License_Identifier: MIT
 
 pragma solidity ^0.8.20;
 
-
 /**
  * @title ERC20Recover
- * @dev Allows token owner to recover any ERC20 sent into the contract.
+ * @dev Allows token owner to recover any ERC20 sent into the contract and send to a receiver.
  */
-abstract contract ERC20Recover is Ownable {
+abstract contract ERC20Recover is Ownable, RecoverERC20 {
     /**
      * @dev Initializes the contract setting the address provided by the deployer as the initial owner.
      */
     constructor(address originalOwner) Ownable(originalOwner) {}
 
     /**
-     * @dev Recover ERC20 tokens stuck into this contract and send to owner address.
+     * @dev Recover a `tokenAmount` of the `tokenAddress` ERC20 stuck into this contract
+     * and send to `tokenReceiver` address.
      * @param tokenAddress The token contract address to recover.
+     * @param tokenReceiver The address who will receive the recovered tokens.
      * @param tokenAmount Number of tokens to be recovered.
      */
-    function recoverERC20(address tokenAddress, uint256 tokenAmount) public virtual onlyOwner {
-        // slither-disable-next-line unchecked-transfer
-        IERC20(tokenAddress).transfer(owner(), tokenAmount);
+    function recoverERC20(address tokenAddress, address tokenReceiver, uint256 tokenAmount) external virtual onlyOwner {
+        _recoverERC20(tokenAddress, tokenReceiver, tokenAmount);
     }
 }
