@@ -14,6 +14,7 @@ function shouldBehaveLikeTokenRecover(owner, receiver) {
   context('as a TokenRecover', function () {
     const amount = new BN(100);
     const tokenId = new BN('5042');
+    const data = '0x42';
 
     beforeEach(async function () {
       this.erc20ToRecover = await ERC20.new();
@@ -30,8 +31,6 @@ function shouldBehaveLikeTokenRecover(owner, receiver) {
 
     describe('TokenRecover behavior', function () {
       describe('recoverERC20', function () {
-        const amount = new BN(100);
-
         describe('if owner is calling', function () {
           it('should recover any ERC20', async function () {
             expect(await this.erc20ToRecover.balanceOf(this.instance.address)).to.be.bignumber.equal(amount);
@@ -63,7 +62,7 @@ function shouldBehaveLikeTokenRecover(owner, receiver) {
             expect(await this.erc721ToRecover.balanceOf(this.instance.address)).to.be.bignumber.equal('1');
             expect(await this.erc721ToRecover.balanceOf(receiver)).to.be.bignumber.equal('0');
 
-            await this.instance.recoverERC721(this.erc721ToRecover.address, receiver, tokenId, { from: owner });
+            await this.instance.recoverERC721(this.erc721ToRecover.address, receiver, tokenId, data, { from: owner });
 
             expect(await this.erc721ToRecover.ownerOf(tokenId)).to.be.equal(receiver);
 
@@ -75,7 +74,7 @@ function shouldBehaveLikeTokenRecover(owner, receiver) {
         describe('if non-owners are calling', function () {
           it('reverts', async function () {
             await expectRevertCustomError(
-              this.instance.recoverERC721(this.erc721ToRecover.address, receiver, tokenId, { from: receiver }),
+              this.instance.recoverERC721(this.erc721ToRecover.address, receiver, tokenId, data, { from: receiver }),
               'OwnableUnauthorizedAccount',
               [receiver],
             );

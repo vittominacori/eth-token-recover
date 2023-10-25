@@ -15,8 +15,14 @@ abstract contract NFTRecover {
      * @param tokenAddress The token contract address to recover.
      * @param tokenReceiver The address who will receive the recovered token.
      * @param tokenId The identifier for the NFT to be recovered.
+     * @param data Additional data with no specified format.
      */
-    function _recoverERC721(address tokenAddress, address tokenReceiver, uint256 tokenId) internal virtual {
-        IERC721(tokenAddress).transferFrom(address(this), tokenReceiver, tokenId);
+    function _recoverERC721(
+        address tokenAddress,
+        address tokenReceiver,
+        uint256 tokenId,
+        bytes memory data
+    ) internal virtual {
+        IERC721(tokenAddress).safeTransferFrom(address(this), tokenReceiver, tokenId, data);
     }
 }

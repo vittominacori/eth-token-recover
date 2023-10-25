@@ -34,8 +34,14 @@ abstract contract TokenRecover is Ownable, ERC20Recover, NFTRecover {
      * @param tokenAddress The token contract address to recover.
      * @param tokenReceiver The address who will receive the recovered token.
      * @param tokenId The identifier for the NFT to be recovered.
+     * @param data Additional data with no specified format.
      */
-    function recoverERC721(address tokenAddress, address tokenReceiver, uint256 tokenId) external virtual onlyOwner {
-        _recoverERC721(tokenAddress, tokenReceiver, tokenId);
+    function recoverERC721(
+        address tokenAddress,
+        address tokenReceiver,
+        uint256 tokenId,
+        bytes memory data
+    ) external virtual onlyOwner {
+        _recoverERC721(tokenAddress, tokenReceiver, tokenId, data);
     }
 }
