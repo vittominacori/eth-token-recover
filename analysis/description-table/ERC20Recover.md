@@ -40,7 +40,7 @@
 ||||||
 | **ERC20Recover** | Implementation | Ownable, RecoverERC20 |||
 | └ | <Constructor> | Public ❗️ | 🛑  | Ownable |
-| └ | recoverERC20 | External ❗️ | 🛑  | onlyOwner |
+| └ | recoverERC20 | Public ❗️ | 🛑  | onlyOwner |
 
 
 ### Legend

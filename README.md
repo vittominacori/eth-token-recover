@@ -167,7 +167,7 @@ contract MyContract is TokenRecover, MyDefinedRules {
     
     // your stuff
 
-    function recoverERC20(address tokenAddress, address tokenReceiver, uint256 tokenAmount) external virtual override alsoMyRule {
+    function recoverERC20(address tokenAddress, address tokenReceiver, uint256 tokenAmount) public virtual override alsoMyRule {
         // your stuff
         
         super.recoverERC20(tokenAddress, tokenReceiver, tokenAmount);
@@ -188,7 +188,7 @@ import {MyDefinedRules} from "./MyDefinedRules.sol";
 contract MyContract is RecoverERC20, MyDefinedRules {
     // your stuff
 
-    function myRecoverERC20(address tokenAddress, address tokenReceiver, uint256 tokenAmount) external virtual onlyMyRule {
+    function myRecoverERC20(address tokenAddress, address tokenReceiver, uint256 tokenAmount) public virtual onlyMyRule {
         // your stuff
         
         _recoverERC20(tokenAddress, tokenReceiver, tokenAmount);

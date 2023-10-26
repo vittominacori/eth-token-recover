@@ -57,8 +57,8 @@
 ||||||
 | **TokenRecover** | Implementation | Ownable, RecoverERC20, RecoverERC721 |||
 | └ | <Constructor> | Public ❗️ | 🛑  | Ownable |
-| └ | recoverERC20 | External ❗️ | 🛑  | onlyOwner |
-| └ | recoverERC721 | External ❗️ | 🛑  | onlyOwner |
+| └ | recoverERC20 | Public ❗️ | 🛑  | onlyOwner |
+| └ | recoverERC721 | Public ❗️ | 🛑  | onlyOwner |
 
 
 ### Legend

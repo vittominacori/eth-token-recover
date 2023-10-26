@@ -32,7 +32,7 @@ abstract contract ERC721Recover is Ownable, RecoverERC721 {
         address tokenReceiver,
         uint256 tokenId,
         bytes memory data
-    ) external virtual onlyOwner {
+    ) public virtual onlyOwner {
         _recoverERC721(tokenAddress, tokenReceiver, tokenId, data);
     }
 }

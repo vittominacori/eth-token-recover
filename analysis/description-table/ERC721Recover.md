@@ -46,7 +46,7 @@
 ||||||
 | **ERC721Recover** | Implementation | Ownable, RecoverERC721 |||
 | └ | <Constructor> | Public ❗️ | 🛑  | Ownable |
-| └ | recoverERC721 | External ❗️ | 🛑  | onlyOwner |
+| └ | recoverERC721 | Public ❗️ | 🛑  | onlyOwner |
 
 
 ### Legend

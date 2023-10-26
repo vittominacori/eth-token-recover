@@ -26,7 +26,7 @@ abstract contract ERC20Recover is Ownable, RecoverERC20 {
      * @param tokenReceiver The address that will receive the recovered tokens.
      * @param tokenAmount Number of tokens to be recovered.
      */
-    function recoverERC20(address tokenAddress, address tokenReceiver, uint256 tokenAmount) external virtual onlyOwner {
+    function recoverERC20(address tokenAddress, address tokenReceiver, uint256 tokenAmount) public virtual onlyOwner {
         _recoverERC20(tokenAddress, tokenReceiver, tokenAmount);
     }
 }
