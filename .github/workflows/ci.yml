@@ -81,6 +81,8 @@ jobs:
   codespell:
     name: Codespell
     runs-on: ubuntu-latest
+    env:
+      FORCE_COLOR: 1
     steps:
       - uses: actions/checkout@v4
       - name: Run CodeSpell
@@ -88,4 +90,4 @@ jobs:
         with:
           check_hidden: true
           check_filenames: true
-          skip: package-lock.json
+          skip: .git,package-lock.json
