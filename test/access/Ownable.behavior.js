@@ -6,7 +6,7 @@ const { ZERO_ADDRESS } = constants;
 const { expect } = require('chai');
 
 function shouldBehaveLikeOwnable(owner, other) {
-  describe('as an Ownable', function () {
+  describe('like an Ownable', function () {
     it('has an owner', async function () {
       expect(await this.instance.owner()).to.equal(owner);
     });

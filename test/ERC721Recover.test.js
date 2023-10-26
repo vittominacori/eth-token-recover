@@ -1,16 +1,16 @@
 const { constants } = require('@openzeppelin/test-helpers');
 const { expectRevertCustomError } = require('./helpers/customError');
 
-const { shouldBehaveLikeTokenRecover } = require('./TokenRecover.behavior');
+const { shouldBehaveLikeERC721Recover } = require('./ERC721Recover.behavior');
 
-const TokenRecover = artifacts.require('$TokenRecover');
+const ERC721Recover = artifacts.require('$ERC721Recover');
 
-contract('TokenRecover', function (accounts) {
+contract('ERC721Recover', function (accounts) {
   const [owner, receiver] = accounts;
 
   describe('creating valid contract', function () {
     it('rejects zero address for owner', async function () {
-      await expectRevertCustomError(TokenRecover.new(constants.ZERO_ADDRESS), 'OwnableInvalidOwner', [
+      await expectRevertCustomError(ERC721Recover.new(constants.ZERO_ADDRESS), 'OwnableInvalidOwner', [
         constants.ZERO_ADDRESS,
       ]);
     });
@@ -18,9 +18,9 @@ contract('TokenRecover', function (accounts) {
 
   describe('once deployed', function () {
     beforeEach(async function () {
-      this.instance = await TokenRecover.new(owner);
+      this.instance = await ERC721Recover.new(owner);
     });
 
-    shouldBehaveLikeTokenRecover(owner, receiver);
+    shouldBehaveLikeERC721Recover(owner, receiver);
   });
 });
