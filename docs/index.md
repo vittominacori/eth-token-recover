@@ -2,7 +2,7 @@
 
 ## ERC20Recover
 
-_Allows token owner to recover any ERC20 sent into the contract and send them to a receiver._
+_Allows the contract owner to recover any ERC20 token sent into the contract and send them to a receiver._
 
 ### constructor
 
@@ -33,7 +33,7 @@ NOTE: restricting access to owner only. See `RecoverERC20::_recoverERC20`._
 
 ## ERC721Recover
 
-_Allows token owner to recover any ERC721 sent into the contract and send them to a receiver._
+_Allows the contract owner to recover any ERC721 token sent into the contract and send them to a receiver._
 
 ### constructor
 
@@ -65,7 +65,7 @@ NOTE: restricting access to owner only. See `RecoverERC721::_recoverERC721`._
 
 ## TokenRecover
 
-_Allows token owner to recover any ERC20 or ERC721 sent into the contract and send them to a receiver._
+_Allows the contract owner to recover any ERC20 or ERC721 token sent into the contract and send them to a receiver._
 
 ### constructor
 
@@ -116,7 +116,7 @@ NOTE: restricting access to owner only. See `RecoverERC721::_recoverERC721`._
 
 ## RecoverERC20
 
-_Allows to recover any ERC20 sent into the contract and send them to a receiver._
+_Allows to recover any ERC20 token sent into the contract and send them to a receiver._
 
 ### _recoverERC20
 
@@ -139,7 +139,7 @@ WARNING: it allows everyone to recover tokens. Access controls MUST be defined i
 
 ## RecoverERC721
 
-_Allows to recover any ERC20 sent into the contract and send them to a receiver._
+_Allows to recover any ERC721 token sent into the contract and send them to a receiver._
 
 ### _recoverERC721
 

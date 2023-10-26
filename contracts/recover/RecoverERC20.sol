@@ -6,7 +6,7 @@ import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 /**
  * @title RecoverERC20
- * @dev Allows to recover any ERC20 sent into the contract and send them to a receiver.
+ * @dev Allows to recover any ERC20 token sent into the contract and send them to a receiver.
  */
 abstract contract RecoverERC20 {
     /**

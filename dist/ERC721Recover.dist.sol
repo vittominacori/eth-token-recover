@@ -308,7 +308,7 @@ pragma solidity ^0.8.20;
 
 /**
  * @title RecoverERC721
- * @dev Allows to recover any ERC20 sent into the contract and send them to a receiver.
+ * @dev Allows to recover any ERC721 token sent into the contract and send them to a receiver.
  */
 abstract contract RecoverERC721 {
     /**
@@ -341,7 +341,7 @@ pragma solidity ^0.8.20;
 
 /**
  * @title ERC721Recover
- * @dev Allows token owner to recover any ERC721 sent into the contract and send them to a receiver.
+ * @dev Allows the contract owner to recover any ERC721 token sent into the contract and send them to a receiver.
  */
 abstract contract ERC721Recover is Ownable, RecoverERC721 {
     /**

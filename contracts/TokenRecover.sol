@@ -9,7 +9,7 @@ import {RecoverERC721} from "./recover/RecoverERC721.sol";
 
 /**
  * @title TokenRecover
- * @dev Allows token owner to recover any ERC20 or ERC721 sent into the contract and send them to a receiver.
+ * @dev Allows the contract owner to recover any ERC20 or ERC721 token sent into the contract and send them to a receiver.
  */
 abstract contract TokenRecover is Ownable, RecoverERC20, RecoverERC721 {
     /**

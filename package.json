@@ -1,7 +1,7 @@
 {
   "name": "eth-token-recover",
   "version": "6.0.0",
-  "description": "TokenRecover allows the contract owner to recover any ERC20 or NFT token sent into the contract for error",
+  "description": "TokenRecover allows to recover any ERC20 or ERC721 token sent into the contract and send them to a receiver.",
   "files": [
     "contracts",
     "test"
@@ -48,7 +48,7 @@
   "bugs": {
     "url": "https://github.com/vittominacori/eth-token-recover/issues"
   },
-  "homepage": "https://github.com/vittominacori/eth-token-recover",
+  "homepage": "https://vittominacori.github.io/eth-token-recover/",
   "dependencies": {
     "@openzeppelin/contracts": "5.0.0"
   },

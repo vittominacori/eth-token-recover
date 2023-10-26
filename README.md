@@ -5,12 +5,12 @@
 [![Coverage Status](https://codecov.io/gh/vittominacori/eth-token-recover/graph/badge.svg)](https://codecov.io/gh/vittominacori/eth-token-recover)
 [![MIT licensed](https://img.shields.io/github/license/vittominacori/eth-token-recover.svg)](https://github.com/vittominacori/eth-token-recover/blob/master/LICENSE)
 
-TokenRecover allows the contract owner to recover any ERC20 token sent into the contract for error.
+TokenRecover allows to recover any ERC20 or ERC721 token sent into the contract and send them to a receiver.
 
 ## Motivation
 
 There are lots of tokens lost forever into Smart Contracts (see [OMG](https://etherscan.io/address/0xd26114cd6ee289accf82350c8d8487fedb8a0c07) token balances).
-Each Ethereum contract is a potential token trap for ERC20 tokens. They can't be recovered, so it means money losses for end users.
+Each Ethereum contract is a potential token trap for ERC20 or ERC721 tokens. They can't be recovered, so it means money losses for end users.
 
 ## Install
 
@@ -18,9 +18,121 @@ Each Ethereum contract is a potential token trap for ERC20 tokens. They can't be
 npm install eth-token-recover
 ```
 
+## Recovers
+
+The `recover` contracts define internal methods that can be used in derived contracts.
+
+### RecoverERC20
+
+[RecoverERC20.sol](https://github.com/vittominacori/eth-token-recover/blob/master/contracts/recover/RecoverERC20.sol)
+
+Allows to recover any ERC20 token sent into the contract and send them to a receiver.
+
+::: warning WARNING
+It allows everyone to recover tokens. Access controls MUST be defined in derived contracts.
+:::
+
+```solidity
+pragma solidity ^0.8.20;
+
+import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+
+abstract contract RecoverERC20 {
+    function _recoverERC20(address tokenAddress, address tokenReceiver, uint256 tokenAmount) internal virtual {
+        IERC20(tokenAddress).transfer(tokenReceiver, tokenAmount);
+    }
+}
+```
+
+### RecoverERC721
+
+[RecoverERC721.sol](https://github.com/vittominacori/eth-token-recover/blob/master/contracts/recover/RecoverERC721.sol)
+
+Allows to recover any ERC721 token sent into the contract and send them to a receiver.
+
+::: warning WARNING
+It allows everyone to recover tokens. Access controls MUST be defined in derived contracts.
+:::
+
+```solidity
+pragma solidity ^0.8.20;
+
+import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+
+abstract contract RecoverERC721 {
+    function _recoverERC721(address tokenAddress, address tokenReceiver, uint256 tokenId, bytes memory data) internal virtual {
+        IERC721(tokenAddress).safeTransferFrom(address(this), tokenReceiver, tokenId, data);
+    }
+}
+```
+
 ## Usage
 
-### Provide your defined owner
+The below contracts define high level code that can be inherited as is or extended to cover desired behaviors.
+
+### ERC20Recover
+
+[ERC20Recover.sol](https://github.com/vittominacori/eth-token-recover/blob/master/contracts/ERC20Recover.sol)
+
+Allows the contract owner to recover any ERC20 token sent into the contract and send them to a receiver.
+
+::: tip NOTE
+This contract is `Ownable` and restricts access to recover method to owner only.
+:::
+
+#### Use ERC20Recover
+
+```solidity
+pragma solidity ^0.8.20;
+
+import {ERC20Recover} from "eth-token-recover/contracts/ERC20Recover.sol";
+
+contract MyContract is ERC20Recover {
+    constructor(address originalOwner) ERC20Recover(originalOwner) {
+        // your stuff
+    }
+    
+    // your stuff
+}
+```
+
+### ERC721Recover
+
+[ERC721Recover.sol](https://github.com/vittominacori/eth-token-recover/blob/master/contracts/ERC721Recover.sol)
+
+Allows the contract owner to recover any ERC721 token sent into the contract and send them to a receiver.
+
+::: tip NOTE
+This contract is `Ownable` and restricts access to recover method to owner only.
+:::
+
+#### Use ERC721Recover
+
+```solidity
+pragma solidity ^0.8.20;
+
+import {ERC721Recover} from "eth-token-recover/contracts/ERC721Recover.sol";
+
+contract MyContract is ERC721Recover {
+    constructor(address originalOwner) ERC721Recover(originalOwner) {
+        // your stuff
+    }
+    
+    // your stuff
+}
+```
+
+### TokenRecover
+
+[TokenRecover.sol](https://github.com/vittominacori/eth-token-recover/blob/master/contracts/TokenRecover.sol)
+
+Allows the contract owner to recover any ERC20 or ERC721 token sent into the contract and send them to a receiver.
+
+::: tip NOTE
+This contract is `Ownable` and restricts access to recover methods to owner only.
+:::
+
+#### Use TokenRecover
 
 ```solidity
 pragma solidity ^0.8.20;
@@ -28,7 +140,6 @@ pragma solidity ^0.8.20;
 import {TokenRecover} from "eth-token-recover/contracts/TokenRecover.sol";
 
 contract MyContract is TokenRecover {
-
     constructor(address originalOwner) TokenRecover(originalOwner) {
         // your stuff
     }
@@ -37,36 +148,66 @@ contract MyContract is TokenRecover {
 }
 ```
 
-### Use deployer as owner
+## Examples
+
+You can extend the code to add your stuff (e.g. to add custom roles or rules).
+
+### Add rules to high level code
 
 ```solidity
 pragma solidity ^0.8.20;
 
 import {TokenRecover} from "eth-token-recover/contracts/TokenRecover.sol";
+import {MyDefinedRules} from "./MyDefinedRules.sol";
 
-contract MyContract is TokenRecover {
-
-    constructor() TokenRecover(_msgSender()) {
+contract MyContract is TokenRecover, MyDefinedRules {
+    constructor(address originalOwner) TokenRecover(originalOwner) {
         // your stuff
     }
     
     // your stuff
+
+    function recoverERC20(address tokenAddress, address tokenReceiver, uint256 tokenAmount) external virtual override alsoMyRule {
+        // your stuff
+        
+        super.recoverERC20(tokenAddress, tokenReceiver, tokenAmount);
+
+        // your stuff
+    }
 }
 ```
 
-## Code
-
-This repo contains:
-
-* [TokenRecover.sol](https://github.com/vittominacori/eth-token-recover/blob/master/contracts/TokenRecover.sol)
-
-Contract has a `recoverERC20` function that transfers a `tokenAmount` amount of `tokenAddress` token to the contract owner.
+### Add rules to low level code
 
 ```solidity
-function recoverERC20(address tokenAddress, uint256 tokenAmount) public virtual onlyOwner;
+pragma solidity ^0.8.20;
+
+import {RecoverERC20} from "eth-token-recover/contracts/recover/RecoverERC20.sol";
+import {MyDefinedRules} from "./MyDefinedRules.sol";
+
+contract MyContract is RecoverERC20, MyDefinedRules {
+    // your stuff
+
+    function myRecoverERC20(address tokenAddress, address tokenReceiver, uint256 tokenAmount) external virtual onlyMyRule {
+        // your stuff
+        
+        _recoverERC20(tokenAddress, tokenReceiver, tokenAmount);
+
+        // your stuff
+    }
+}
 ```
 
-Note: only owner can call the `recoverERC20` function so be careful when use on contracts generated from other contracts.
+## Documentation
+
+* [Documentation](https://github.com/vittominacori/eth-token-recover/blob/master/docs/index.md)
+
+## Code Analysis
+
+* [Control Flow](https://github.com/vittominacori/eth-token-recover/tree/master/analysis/control-flow)
+* [Description Table](https://github.com/vittominacori/eth-token-recover/tree/master/analysis/description-table)
+* [Inheritance Tree](https://github.com/vittominacori/eth-token-recover/tree/master/analysis/inheritance-tree)
+* [UML](https://github.com/vittominacori/eth-token-recover/tree/master/analysis/uml)
 
 ## Development
 
@@ -76,27 +217,19 @@ Note: only owner can call the `recoverERC20` function so be careful when use on 
 npm install
 ```
 
-### Usage
-
-Open the console
-
-```bash
-npm run console
-```
-
-#### Compile
+### Compile
 
 ```bash
 npm run compile
 ```
 
-#### Test
+### Test
 
 ```bash
 npm test
 ```
 
-#### Code Coverage
+### Code Coverage
 
 ```bash
 npm run coverage
