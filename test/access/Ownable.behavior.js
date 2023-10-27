@@ -1,8 +1,6 @@
 const { constants, expectEvent } = require('@openzeppelin/test-helpers');
 const { expectRevertCustomError } = require('../helpers/customError');
 
-const { ZERO_ADDRESS } = constants;
-
 const { expect } = require('chai');
 
 function shouldBehaveLikeOwnable(owner, other) {
@@ -29,9 +27,9 @@ function shouldBehaveLikeOwnable(owner, other) {
 
       it('guards ownership against stuck state', async function () {
         await expectRevertCustomError(
-          this.instance.transferOwnership(ZERO_ADDRESS, { from: owner }),
+          this.instance.transferOwnership(constants.ZERO_ADDRESS, { from: owner }),
           'OwnableInvalidOwner',
-          [ZERO_ADDRESS],
+          [constants.ZERO_ADDRESS],
         );
       });
     });
@@ -41,7 +39,7 @@ function shouldBehaveLikeOwnable(owner, other) {
         const receipt = await this.instance.renounceOwnership({ from: owner });
         expectEvent(receipt, 'OwnershipTransferred');
 
-        expect(await this.instance.owner()).to.equal(ZERO_ADDRESS);
+        expect(await this.instance.owner()).to.equal(constants.ZERO_ADDRESS);
       });
 
       it('prevents non-owners from renouncement', async function () {

@@ -1,6 +1,6 @@
 {
   "name": "eth-token-recover",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "description": "TokenRecover allows to recover any ERC20 or ERC721 token sent into the contract and send them to a receiver.",
   "files": [
     "contracts",
