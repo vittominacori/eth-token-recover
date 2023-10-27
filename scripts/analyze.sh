@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-for contract in "ERC20Recover" "ERC721Recover" "TokenRecover"
+for contract in "ERC20Recover" "ERC721Recover" "TokenRecover" "TokenRecoverLegacy"
 do
   npx surya inheritance dist/$contract.dist.sol | dot -Tpng > analysis/inheritance-tree/$contract.png
 

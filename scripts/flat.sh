@@ -7,6 +7,8 @@ do
   npx hardhat flatten contracts/$contract.sol > dist/$contract.dist.sol
 done
 
+npx hardhat flatten contracts/legacy/TokenRecoverLegacy.sol > dist/TokenRecoverLegacy.dist.sol
+
 echo "adjusting license..."
 
 SEARCH="\/\/ SPDX-License-Identifier: MIT"

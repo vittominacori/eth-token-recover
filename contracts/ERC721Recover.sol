@@ -14,7 +14,7 @@ abstract contract ERC721Recover is Ownable, RecoverERC721 {
     /**
      * @dev Initializes the contract setting the address provided by the deployer as the initial owner.
      */
-    constructor(address originalOwner) Ownable(originalOwner) {}
+    constructor(address initialOwner) Ownable(initialOwner) {}
 
     /**
      * @dev Recovers the `tokenId` of the ERC721 `tokenAddress` locked into this contract
