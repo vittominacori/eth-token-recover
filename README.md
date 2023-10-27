@@ -229,7 +229,7 @@ The v4.x (and earlier) `TokenRecover::recoverERC20` method has been updated to a
 ```
 :::
 
-If you still need a version that use the old behavior, check the [Backwards Compatibility](#backwards-compatibility) section.
+If you still need a version that uses the old behavior, check the [Backwards Compatibility](#backwards-compatibility) section.
 
 ## Backwards Compatibility
 
