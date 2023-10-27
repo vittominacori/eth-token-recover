@@ -5,12 +5,13 @@
 [![Coverage Status](https://codecov.io/gh/vittominacori/eth-token-recover/graph/badge.svg)](https://codecov.io/gh/vittominacori/eth-token-recover)
 [![MIT licensed](https://img.shields.io/github/license/vittominacori/eth-token-recover.svg)](https://github.com/vittominacori/eth-token-recover/blob/master/LICENSE)
 
-TokenRecover allows to recover any ERC20 or ERC721 token sent into the contract and send them to a receiver.
-
-## Motivation
+TokenRecover allows to recover any ERC20 or NFT (ERC721) token sent into the contract and send them to a receiver.
 
 There are lots of tokens lost forever into Smart Contracts (see [OMG](https://etherscan.io/address/0xd26114cd6ee289accf82350c8d8487fedb8a0c07) token balances).
-Each Ethereum contract is a potential token trap for ERC20 or ERC721 tokens. They can't be recovered, so it means money losses for end users.
+Each Ethereum contract, as well as any EVM compatible contract, is a potential token trap for ERC20 or ERC721 tokens. 
+They can't be recovered, so it means money losses for end users.
+
+By using TokenRecover, any smart contract can offer users a robust solution for reclaiming mistakenly or erroneously sent tokens, enhancing the overall user experience and confidence in the decentralized ecosystem.
 
 ## Install
 
@@ -150,9 +151,9 @@ contract MyContract is TokenRecover {
 
 ## Examples
 
-You can extend the code to add your stuff (e.g. to add custom roles or rules).
+Contracts can be extended to add custom logic (e.g. to add custom roles or rules).
 
-### Add rules to high level code
+### Add rules to high level
 
 ```solidity
 pragma solidity ^0.8.20;
@@ -177,7 +178,7 @@ contract MyContract is TokenRecover, MyDefinedRules {
 }
 ```
 
-### Add rules to low level code
+### Add rules to low level
 
 ```solidity
 pragma solidity ^0.8.20;
@@ -229,16 +230,18 @@ The v4.x (and earlier) `TokenRecover::recoverERC20` method has been updated to a
 ```
 :::
 
-If you still need a version that uses the old behavior, check the [Backwards Compatibility](#backwards-compatibility) section.
+Check the [Backwards Compatibility](#backwards-compatibility) section for additional details.
 
 ## Backwards Compatibility
 
-If you want to use a backward compatible version that
+A backward compatible (legacy) version is available in the `legacy` folder.
 
-* implicitly sets the deployer as contract owner
-* sends recovered tokens to owner instead of providing an explicit receiver 
+`TokenRecoverLegacy` contract will:
 
-update your contracts to inherit from `TokenRecoverLegacy` contract.
+* implicitly set the deployer as contract owner
+* send recovered tokens to owner instead of providing an explicit receiver 
+
+To use `TokenRecoverLegacy`, a contract inheriting from `TokenRecover` needs to be updated in the following way
 
 ```diff
 pragma solidity ^0.8.20;
@@ -255,7 +258,7 @@ pragma solidity ^0.8.20;
 ::: warning DISCLAIMER
 `TokenRecoverLegacy` is a legacy version of `TokenRecover` that works as v4.x and earlier and MAY be removed in future releases. 
 
-We highly recommend to update your code to use newer versions of the recover.
+We highly recommend to keep the code updated to use newer versions of the recover.
 :::
 
 ## Documentation

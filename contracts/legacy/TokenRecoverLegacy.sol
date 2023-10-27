@@ -12,8 +12,8 @@ import {RecoverERC20} from "../recover/RecoverERC20.sol";
  *
  * WARNING: The deployer address will automatically be set as contract owner.
  *
- * NOTE: this is a legacy version of Token Recover that works as v4.x and earlier and MAY be removed in future releases.
- * We highly recommend to update your code to use newer versions of the recover.
+ * NOTE: this is a legacy version of `TokenRecover` that works as v4.x and earlier and MAY be removed in future releases.
+ * We highly recommend to keep the code updated to use newer versions of the recover.
  */
 abstract contract TokenRecoverLegacy is Ownable, RecoverERC20 {
     /**
