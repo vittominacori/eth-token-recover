@@ -259,7 +259,7 @@ abstract contract ERC20Recover is Ownable, RecoverERC20 {
     /**
      * @dev Initializes the contract setting the address provided by the deployer as the initial owner.
      */
-    constructor(address originalOwner) Ownable(originalOwner) {}
+    constructor(address initialOwner) Ownable(initialOwner) {}
 
     /**
      * @dev Recovers a `tokenAmount` of the ERC20 `tokenAddress` locked into this contract

@@ -28,7 +28,7 @@ The `recover` contracts define internal methods that can be used in derived cont
 
 Allows to recover any ERC20 token sent into the contract and send them to a receiver.
 
-::: warning WARNING
+::: warning
 It allows everyone to recover tokens. Access controls MUST be defined in derived contracts.
 :::
 
@@ -50,7 +50,7 @@ abstract contract RecoverERC20 {
 
 Allows to recover any ERC721 token sent into the contract and send them to a receiver.
 
-::: warning WARNING
+::: warning
 It allows everyone to recover tokens. Access controls MUST be defined in derived contracts.
 :::
 
@@ -88,7 +88,7 @@ pragma solidity ^0.8.20;
 import {ERC20Recover} from "eth-token-recover/contracts/ERC20Recover.sol";
 
 contract MyContract is ERC20Recover {
-    constructor(address originalOwner) ERC20Recover(originalOwner) {
+    constructor(address initialOwner) ERC20Recover(initialOwner) {
         // your stuff
     }
     
@@ -114,7 +114,7 @@ pragma solidity ^0.8.20;
 import {ERC721Recover} from "eth-token-recover/contracts/ERC721Recover.sol";
 
 contract MyContract is ERC721Recover {
-    constructor(address originalOwner) ERC721Recover(originalOwner) {
+    constructor(address initialOwner) ERC721Recover(initialOwner) {
         // your stuff
     }
     
@@ -140,7 +140,7 @@ pragma solidity ^0.8.20;
 import {TokenRecover} from "eth-token-recover/contracts/TokenRecover.sol";
 
 contract MyContract is TokenRecover {
-    constructor(address originalOwner) TokenRecover(originalOwner) {
+    constructor(address initialOwner) TokenRecover(initialOwner) {
         // your stuff
     }
     
@@ -161,7 +161,7 @@ import {TokenRecover} from "eth-token-recover/contracts/TokenRecover.sol";
 import {MyDefinedRules} from "./MyDefinedRules.sol";
 
 contract MyContract is TokenRecover, MyDefinedRules {
-    constructor(address originalOwner) TokenRecover(originalOwner) {
+    constructor(address initialOwner) TokenRecover(initialOwner) {
         // your stuff
     }
     
@@ -198,9 +198,69 @@ contract MyContract is RecoverERC20, MyDefinedRules {
 }
 ```
 
+## Migrating from 4.x
+
+::: warning
+The `TokenRecover` constructor now requires an `initialOwner` parameter, making the ownership initialization explicit.
+:::
+
+A contract inheriting from `TokenRecover` needs to be updated in the following way.
+
+```diff
+pragma solidity ^0.8.20;
+
+import {TokenRecover} from "eth-token-recover/contracts/TokenRecover.sol";
+
+contract MyContract is TokenRecover {
++   constructor(address initialOwner) TokenRecover(initialOwner) {
++       // your stuff
++   }
+    
+    // your stuff
+}
+```
+
+::: warning
+The v4.x (and earlier) `TokenRecover::recoverERC20` method has been updated to accept the `tokenReceiver` address, the address that will receive the recovered token.
+
+```diff
+-function recoverERC20(address tokenAddress, uint256 tokenAmount) public virtual onlyOwner
++function recoverERC20(address tokenAddress, address tokenReceiver, uint256 tokenAmount) public virtual onlyOwner
+```
+:::
+
+If you still need a version that use the old behavior, check the [Backwards Compatibility](#backwards-compatibility) section.
+
+## Backwards Compatibility
+
+If you want to use a backward compatible version that
+
+* implicitly sets the deployer as contract owner
+* sends recovered tokens to owner instead of providing an explicit receiver 
+
+update your contracts to inherit from `TokenRecoverLegacy` contract.
+
+```diff
+pragma solidity ^0.8.20;
+
+-import {TokenRecover} from "eth-token-recover/contracts/TokenRecover.sol";
++import {TokenRecoverLegacy} from "eth-token-recover/contracts/legacy/TokenRecoverLegacy.sol";
+
+-contract MyContract is TokenRecover {    
++contract MyContract is TokenRecoverLegacy {    
+    // your stuff
+}
+```
+
+::: warning DISCLAIMER
+`TokenRecoverLegacy` is a legacy version of `TokenRecover` that works as v4.x and earlier and MAY be removed in future releases. 
+
+We highly recommend to update your code to use newer versions of the recover.
+:::
+
 ## Documentation
 
-* [Documentation](https://github.com/vittominacori/eth-token-recover/blob/master/docs/index.md)
+* [Solidity API](https://github.com/vittominacori/eth-token-recover/blob/master/docs/index.md)
 
 ## Code Analysis
 
