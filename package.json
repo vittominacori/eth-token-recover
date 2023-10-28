@@ -73,7 +73,7 @@
     "solhint-plugin-openzeppelin": "file:scripts/solhint-custom",
     "solidity-coverage": "^0.8.5",
     "solidity-docgen": "^0.6.0-beta.36",
-    "surya": "^0.4.8",
+    "surya": "^0.4.10",
     "truffle": "^5.11.5",
     "vuepress": "^1.9.10",
     "vuepress-plugin-google-gtag": "^1.0.1",
