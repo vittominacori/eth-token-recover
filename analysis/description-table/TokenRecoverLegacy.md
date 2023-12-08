@@ -18,6 +18,7 @@
 | **Context** | Implementation |  |||
 | └ | _msgSender | Internal 🔒 |   | |
 | └ | _msgData | Internal 🔒 |   | |
+| └ | _contextSuffixLength | Internal 🔒 |   | |
 ||||||
 | **Ownable** | Implementation | Context |||
 | └ | <Constructor> | Public ❗️ | 🛑  |NO❗️ |
