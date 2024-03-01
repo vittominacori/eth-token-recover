@@ -1,6 +1,6 @@
 {
   "name": "eth-token-recover",
-  "version": "6.1.3",
+  "version": "6.2.0",
   "description": "TokenRecover allows to recover any ERC20 or ERC721 token sent into the contract and send them to a receiver.",
   "files": [
     "contracts",
@@ -71,7 +71,7 @@
     "sol2uml": "^2.5.20",
     "solhint": "^4.1.1",
     "solhint-plugin-openzeppelin": "file:scripts/solhint-custom",
-    "solidity-coverage": "^0.8.8",
+    "solidity-coverage": "^0.8.10",
     "solidity-docgen": "^0.6.0-beta.36",
     "surya": "^0.4.11",
     "truffle": "^5.11.5",
