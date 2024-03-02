@@ -1,25 +1,21 @@
+import { defineConfig } from 'vitepress';
+
 const vars = require('./.env.json');
 
 const title = 'ETH Token Recover | Recover any ERC20 or NFT (ERC721) Token';
 const description =
   'TokenRecover allows to recover any ERC20 or NFT (ERC721) token sent into the contract and send them to a receiver.';
 const url = 'https://vittominacori.github.io/eth-token-recover';
-const image = '';
+const image = 'https://vittominacori.github.io/eth-token-recover/images/eth-token-recover.jpg';
+const repo = 'https://github.com/vittominacori/eth-token-recover.git';
 
-module.exports = {
+export default defineConfig({
   title: 'Recover any ERC20 or NFT (ERC721) Token',
+  titleTemplate: 'Reference implementation',
   description: description,
   base: '/eth-token-recover/',
-  plugins: [
-    [
-      'google-gtag',
-      {
-        ga: vars.gaId,
-      },
-    ],
-  ],
   head: [
-    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['link', { rel: 'shortcut icon', href: '/eth-token-recover/favicon.ico' }],
     ['meta', { name: 'title', property: 'og:title', content: title }],
     ['meta', { name: 'description', property: 'og:description', content: description }],
     ['meta', { name: 'image', property: 'og:image', content: image }],
@@ -32,9 +28,21 @@ module.exports = {
     ['meta', { property: 'twitter:description', content: description }],
     ['meta', { property: 'twitter:image', content: image }],
     ['meta', { property: 'twitter:card', content: 'summary_large_image' }],
+    ['script', { async: '', src: `https://www.googletagmanager.com/gtag/js?id=${vars.gaId}` }],
+    [
+      'script',
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${vars.gaId}');`,
+    ],
   ],
   themeConfig: {
-    repo: 'vittominacori/eth-token-recover',
-    sidebar: 'auto',
+    siteTitle: 'ETH Token Recover',
+    socialLinks: [{ icon: 'github', link: repo }],
+    search: {
+      provider: 'local',
+    },
   },
-};
+});

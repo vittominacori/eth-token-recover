@@ -29,9 +29,8 @@ The `recover` contracts define internal methods that can be used in derived cont
 
 Allows to recover any ERC20 token sent into the contract and send them to a receiver.
 
-::: warning
-It allows everyone to recover tokens. Access controls MUST be defined in derived contracts.
-:::
+> [!WARNING]
+> It allows everyone to recover tokens. Access controls MUST be defined in derived contracts.
 
 ```solidity
 pragma solidity ^0.8.20;
@@ -51,9 +50,8 @@ abstract contract RecoverERC20 {
 
 Allows to recover any ERC721 token sent into the contract and send them to a receiver.
 
-::: warning
-It allows everyone to recover tokens. Access controls MUST be defined in derived contracts.
-:::
+> [!WARNING]
+> It allows everyone to recover tokens. Access controls MUST be defined in derived contracts.
 
 ```solidity
 pragma solidity ^0.8.20;
@@ -77,9 +75,8 @@ The below contracts define high level code that can be inherited as is or extend
 
 Allows the contract owner to recover any ERC20 token sent into the contract and send them to a receiver.
 
-::: tip NOTE
-This contract is `Ownable` and restricts access to recover method to owner only.
-:::
+> [!IMPORTANT]
+> This contract is `Ownable` and restricts access to recover method to owner only.
 
 #### Use ERC20Recover
 
@@ -103,9 +100,8 @@ contract MyContract is ERC20Recover {
 
 Allows the contract owner to recover any ERC721 token sent into the contract and send them to a receiver.
 
-::: tip NOTE
-This contract is `Ownable` and restricts access to recover method to owner only.
-:::
+> [!IMPORTANT]
+> This contract is `Ownable` and restricts access to recover method to owner only.
 
 #### Use ERC721Recover
 
@@ -129,9 +125,8 @@ contract MyContract is ERC721Recover {
 
 Allows the contract owner to recover any ERC20 or ERC721 token sent into the contract and send them to a receiver.
 
-::: tip NOTE
-This contract is `Ownable` and restricts access to recover methods to owner only.
-:::
+> [!IMPORTANT]
+> This contract is `Ownable` and restricts access to recover methods to owner only.
 
 #### Use TokenRecover
 
@@ -201,9 +196,8 @@ contract MyContract is RecoverERC20, MyDefinedRules {
 
 ## Migrating from 4.x
 
-::: warning
-The `TokenRecover` constructor now requires an `initialOwner` parameter, making the ownership initialization explicit.
-:::
+> [!WARNING]
+> The `TokenRecover` constructor now requires an `initialOwner` parameter, making the ownership initialization explicit.
 
 A contract inheriting from `TokenRecover` needs to be updated in the following way.
 
@@ -221,14 +215,13 @@ contract MyContract is TokenRecover {
 }
 ```
 
-::: warning
-The v4.x (and earlier) `TokenRecover::recoverERC20` method has been updated to accept the `tokenReceiver` address, the address that will receive the recovered token.
-
-```diff
--function recoverERC20(address tokenAddress, uint256 tokenAmount) public virtual onlyOwner
-+function recoverERC20(address tokenAddress, address tokenReceiver, uint256 tokenAmount) public virtual onlyOwner
-```
-:::
+> [!WARNING]
+> The v4.x (and earlier) `TokenRecover::recoverERC20` method has been updated to accept the `tokenReceiver` address, the address that will receive the recovered token.
+>
+> ```diff
+> -function recoverERC20(address tokenAddress, uint256 tokenAmount) public virtual onlyOwner
+> +function recoverERC20(address tokenAddress, address tokenReceiver, uint256 tokenAmount) public virtual onlyOwner
+> ```
 
 Check the [Backwards Compatibility](#backwards-compatibility) section for additional details.
 
@@ -255,11 +248,10 @@ pragma solidity ^0.8.20;
 }
 ```
 
-::: warning DISCLAIMER
-`TokenRecoverLegacy` is a legacy version of `TokenRecover` that works as v4.x and earlier and MAY be removed in future releases. 
-
-We highly recommend to keep the code updated to use newer versions of the recover.
-:::
+> [!CAUTION]
+> `TokenRecoverLegacy` is a legacy version of `TokenRecover` that works as v4.x and earlier and MAY be removed in future releases. 
+> 
+> We highly recommend to keep the code updated to use newer versions of the recover.
 
 ## Documentation
 
