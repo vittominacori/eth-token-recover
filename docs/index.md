@@ -2,7 +2,7 @@
 
 ## ERC20Recover
 
-_Allows the contract owner to recover any ERC20 token sent into the contract and send them to a receiver._
+_Allows the contract owner to recover any ERC-20 token sent into the contract and sends them to a receiver._
 
 ### constructor
 
@@ -18,7 +18,7 @@ _Initializes the contract setting the address provided by the deployer as the in
 function recoverERC20(address tokenAddress, address tokenReceiver, uint256 tokenAmount) public virtual
 ```
 
-_Recovers a `tokenAmount` of the ERC20 `tokenAddress` locked into this contract
+_Recovers a `tokenAmount` of the ERC-20 `tokenAddress` locked into this contract
 and sends them to the `tokenReceiver` address.
 
 NOTE: restricting access to owner only. See `RecoverERC20::_recoverERC20`._
@@ -33,7 +33,7 @@ NOTE: restricting access to owner only. See `RecoverERC20::_recoverERC20`._
 
 ## ERC721Recover
 
-_Allows the contract owner to recover any ERC721 token sent into the contract and send them to a receiver._
+_Allows the contract owner to recover any ERC-721 token sent into the contract and sends them to a receiver._
 
 ### constructor
 
@@ -49,7 +49,7 @@ _Initializes the contract setting the address provided by the deployer as the in
 function recoverERC721(address tokenAddress, address tokenReceiver, uint256 tokenId, bytes data) public virtual
 ```
 
-_Recovers the `tokenId` of the ERC721 `tokenAddress` locked into this contract
+_Recovers the `tokenId` of the ERC-721 `tokenAddress` locked into this contract
 and sends it to the `tokenReceiver` address.
 
 NOTE: restricting access to owner only. See `RecoverERC721::_recoverERC721`._
@@ -65,7 +65,8 @@ NOTE: restricting access to owner only. See `RecoverERC721::_recoverERC721`._
 
 ## TokenRecover
 
-_Allows the contract owner to recover any ERC20 or ERC721 token sent into the contract and send them to a receiver._
+_Allows the contract owner to recover any ERC-20 or ERC-721 token sent into the contract
+and sends them to a receiver._
 
 ### constructor
 
@@ -81,7 +82,7 @@ _Initializes the contract setting the address provided by the deployer as the in
 function recoverERC20(address tokenAddress, address tokenReceiver, uint256 tokenAmount) public virtual
 ```
 
-_Recovers a `tokenAmount` of the ERC20 `tokenAddress` locked into this contract
+_Recovers a `tokenAmount` of the ERC-20 `tokenAddress` locked into this contract
 and sends them to the `tokenReceiver` address.
 
 NOTE: restricting access to owner only. See `RecoverERC20::_recoverERC20`._
@@ -100,7 +101,7 @@ NOTE: restricting access to owner only. See `RecoverERC20::_recoverERC20`._
 function recoverERC721(address tokenAddress, address tokenReceiver, uint256 tokenId, bytes data) public virtual
 ```
 
-_Recovers the `tokenId` of the ERC721 `tokenAddress` locked into this contract
+_Recovers the `tokenId` of the ERC-721 `tokenAddress` locked into this contract
 and sends it to the `tokenReceiver` address.
 
 NOTE: restricting access to owner only. See `RecoverERC721::_recoverERC721`._
@@ -116,7 +117,7 @@ NOTE: restricting access to owner only. See `RecoverERC721::_recoverERC721`._
 
 ## TokenRecoverLegacy
 
-_Allows the contract owner to recover any ERC20 token sent into the contract and send them to `owner()`.
+_Allows the contract owner to recover any ERC-20 token sent into the contract and sends them to `owner()`.
 
 WARNING: The deployer address will automatically be set as contract owner.
 
@@ -137,7 +138,7 @@ _Initializes the contract setting the deployer as the initial owner._
 function recoverERC20(address tokenAddress, uint256 tokenAmount) public virtual
 ```
 
-_Recovers a `tokenAmount` of the ERC20 `tokenAddress` locked into this contract
+_Recovers a `tokenAmount` of the ERC-20 `tokenAddress` locked into this contract
 and sends them to the `owner()` address.
 
 NOTE: restricting access to owner only. See `RecoverERC20::_recoverERC20`._
@@ -151,7 +152,7 @@ NOTE: restricting access to owner only. See `RecoverERC20::_recoverERC20`._
 
 ## RecoverERC20
 
-_Allows to recover any ERC20 token sent into the contract and send them to a receiver._
+_Allows to recover any ERC-20 token sent into the contract and sends them to a receiver._
 
 ### _recoverERC20
 
@@ -159,7 +160,7 @@ _Allows to recover any ERC20 token sent into the contract and send them to a rec
 function _recoverERC20(address tokenAddress, address tokenReceiver, uint256 tokenAmount) internal virtual
 ```
 
-_Recovers a `tokenAmount` of the ERC20 `tokenAddress` locked into this contract
+_Recovers a `tokenAmount` of the ERC-20 `tokenAddress` locked into this contract
 and sends them to the `tokenReceiver` address.
 
 WARNING: it allows everyone to recover tokens. Access controls MUST be defined in derived contracts._
@@ -174,7 +175,7 @@ WARNING: it allows everyone to recover tokens. Access controls MUST be defined i
 
 ## RecoverERC721
 
-_Allows to recover any ERC721 token sent into the contract and send them to a receiver._
+_Allows to recover any ERC-721 token sent into the contract and sends them to a receiver._
 
 ### _recoverERC721
 
@@ -182,7 +183,7 @@ _Allows to recover any ERC721 token sent into the contract and send them to a re
 function _recoverERC721(address tokenAddress, address tokenReceiver, uint256 tokenId, bytes data) internal virtual
 ```
 
-_Recovers the `tokenId` of the ERC721 `tokenAddress` locked into this contract
+_Recovers the `tokenId` of the ERC-721 `tokenAddress` locked into this contract
 and sends it to the `tokenReceiver` address.
 
 WARNING: it allows everyone to recover tokens. Access controls MUST be defined in derived contracts._

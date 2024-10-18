@@ -5,10 +5,10 @@
 [![Coverage Status](https://codecov.io/gh/vittominacori/eth-token-recover/graph/badge.svg)](https://codecov.io/gh/vittominacori/eth-token-recover)
 [![MIT licensed](https://img.shields.io/github/license/vittominacori/eth-token-recover.svg)](https://github.com/vittominacori/eth-token-recover/blob/master/LICENSE)
 
-TokenRecover allows to recover any ERC20 or NFT (ERC721) token sent into the contract and send them to a receiver.
+TokenRecover allows to recover any ERC-20 or NFT (ERC-721) token sent into the contract and sends them to a receiver.
 
 There are lots of tokens lost forever into Smart Contracts (see [OMG](https://etherscan.io/address/0xd26114cd6ee289accf82350c8d8487fedb8a0c07) token balances).
-Each Ethereum contract, as well as any EVM compatible contract, is a potential token trap for ERC20 or ERC721 tokens. 
+Each Ethereum contract, as well as any EVM compatible contract, is a potential token trap for ERC-20 or ERC-721 tokens. 
 They can't be recovered, so it means money losses for end users.
 
 By using TokenRecover, any smart contract can offer users a robust solution for reclaiming mistakenly or erroneously sent tokens, enhancing the overall user experience and confidence in the decentralized ecosystem.
@@ -27,7 +27,7 @@ The `recover` contracts define internal methods that can be used in derived cont
 
 [RecoverERC20.sol](https://github.com/vittominacori/eth-token-recover/blob/master/contracts/recover/RecoverERC20.sol)
 
-Allows to recover any ERC20 token sent into the contract and send them to a receiver.
+Allows to recover any ERC-20 token sent into the contract and sends them to a receiver.
 
 > [!WARNING]
 > It allows everyone to recover tokens. Access controls MUST be defined in derived contracts.
@@ -48,7 +48,7 @@ abstract contract RecoverERC20 {
 
 [RecoverERC721.sol](https://github.com/vittominacori/eth-token-recover/blob/master/contracts/recover/RecoverERC721.sol)
 
-Allows to recover any ERC721 token sent into the contract and send them to a receiver.
+Allows to recover any ERC-721 token sent into the contract and sends them to a receiver.
 
 > [!WARNING]
 > It allows everyone to recover tokens. Access controls MUST be defined in derived contracts.
@@ -73,7 +73,7 @@ The below contracts define high level code that can be inherited as is or extend
 
 [ERC20Recover.sol](https://github.com/vittominacori/eth-token-recover/blob/master/contracts/ERC20Recover.sol)
 
-Allows the contract owner to recover any ERC20 token sent into the contract and send them to a receiver.
+Allows the contract owner to recover any ERC-20 token sent into the contract and sends them to a receiver.
 
 > [!IMPORTANT]
 > This contract is `Ownable` and restricts access to recover method to owner only.
@@ -98,7 +98,7 @@ contract MyContract is ERC20Recover {
 
 [ERC721Recover.sol](https://github.com/vittominacori/eth-token-recover/blob/master/contracts/ERC721Recover.sol)
 
-Allows the contract owner to recover any ERC721 token sent into the contract and send them to a receiver.
+Allows the contract owner to recover any ERC-721 token sent into the contract and sends them to a receiver.
 
 > [!IMPORTANT]
 > This contract is `Ownable` and restricts access to recover method to owner only.
@@ -123,7 +123,7 @@ contract MyContract is ERC721Recover {
 
 [TokenRecover.sol](https://github.com/vittominacori/eth-token-recover/blob/master/contracts/TokenRecover.sol)
 
-Allows the contract owner to recover any ERC20 or ERC721 token sent into the contract and send them to a receiver.
+Allows the contract owner to recover any ERC-20 or ERC-721 token sent into the contract and sends them to a receiver.
 
 > [!IMPORTANT]
 > This contract is `Ownable` and restricts access to recover methods to owner only.

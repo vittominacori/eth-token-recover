@@ -6,11 +6,11 @@ import {IERC721} from "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
 /**
  * @title RecoverERC721
- * @dev Allows to recover any ERC721 token sent into the contract and send them to a receiver.
+ * @dev Allows to recover any ERC-721 token sent into the contract and sends them to a receiver.
  */
 abstract contract RecoverERC721 {
     /**
-     * @dev Recovers the `tokenId` of the ERC721 `tokenAddress` locked into this contract
+     * @dev Recovers the `tokenId` of the ERC-721 `tokenAddress` locked into this contract
      * and sends it to the `tokenReceiver` address.
      *
      * WARNING: it allows everyone to recover tokens. Access controls MUST be defined in derived contracts.

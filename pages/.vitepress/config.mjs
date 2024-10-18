@@ -2,15 +2,15 @@ import { defineConfig } from 'vitepress';
 
 const vars = require('./.env.json');
 
-const title = 'ETH Token Recover | Recover any ERC20 or NFT (ERC721) Token';
+const title = 'ETH Token Recover | Recover any ERC-20 or NFT (ERC-721) Token';
 const description =
-  'TokenRecover allows to recover any ERC20 or NFT (ERC721) token sent into the contract and send them to a receiver.';
+  'TokenRecover allows to recover any ERC-20 or NFT (ERC-721) token sent into the contract and sends them to a receiver.';
 const url = 'https://vittominacori.github.io/eth-token-recover';
 const image = 'https://vittominacori.github.io/eth-token-recover/images/eth-token-recover.jpg';
 const repo = 'https://github.com/vittominacori/eth-token-recover.git';
 
 export default defineConfig({
-  title: 'Recover any ERC20 or NFT (ERC721) Token',
+  title: 'Recover any ERC-20 or NFT (ERC-721) Token',
   titleTemplate: 'Reference implementation',
   description: description,
   base: '/eth-token-recover/',

@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 
-// Sources flattened with hardhat v2.22.11 https://hardhat.org
+// Sources flattened with hardhat v2.22.13 https://hardhat.org
 
 
 
-// File @openzeppelin/contracts/utils/Context.sol@v5.0.2
+// File @openzeppelin/contracts/utils/Context.sol@v5.1.0
 
 // Original license: SPDX_License_Identifier: MIT
 // OpenZeppelin Contracts (last updated v5.0.1) (utils/Context.sol)
@@ -36,7 +36,7 @@ abstract contract Context {
 }
 
 
-// File @openzeppelin/contracts/access/Ownable.sol@v5.0.2
+// File @openzeppelin/contracts/access/Ownable.sol@v5.1.0
 
 // Original license: SPDX_License_Identifier: MIT
 // OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)
@@ -138,15 +138,15 @@ abstract contract Ownable is Context {
 }
 
 
-// File @openzeppelin/contracts/token/ERC20/IERC20.sol@v5.0.2
+// File @openzeppelin/contracts/token/ERC20/IERC20.sol@v5.1.0
 
 // Original license: SPDX_License_Identifier: MIT
-// OpenZeppelin Contracts (last updated v5.0.0) (token/ERC20/IERC20.sol)
+// OpenZeppelin Contracts (last updated v5.1.0) (token/ERC20/IERC20.sol)
 
 pragma solidity ^0.8.20;
 
 /**
- * @dev Interface of the ERC20 standard as defined in the EIP.
+ * @dev Interface of the ERC-20 standard as defined in the ERC.
  */
 interface IERC20 {
     /**
@@ -229,11 +229,11 @@ pragma solidity ^0.8.20;
 
 /**
  * @title RecoverERC20
- * @dev Allows to recover any ERC20 token sent into the contract and send them to a receiver.
+ * @dev Allows to recover any ERC-20 token sent into the contract and sends them to a receiver.
  */
 abstract contract RecoverERC20 {
     /**
-     * @dev Recovers a `tokenAmount` of the ERC20 `tokenAddress` locked into this contract
+     * @dev Recovers a `tokenAmount` of the ERC-20 `tokenAddress` locked into this contract
      * and sends them to the `tokenReceiver` address.
      *
      * WARNING: it allows everyone to recover tokens. Access controls MUST be defined in derived contracts.
@@ -257,7 +257,7 @@ pragma solidity ^0.8.20;
 
 /**
  * @title TokenRecoverLegacy
- * @dev Allows the contract owner to recover any ERC20 token sent into the contract and send them to `owner()`.
+ * @dev Allows the contract owner to recover any ERC-20 token sent into the contract and sends them to `owner()`.
  *
  * WARNING: The deployer address will automatically be set as contract owner.
  *
@@ -271,7 +271,7 @@ abstract contract TokenRecoverLegacy is Ownable, RecoverERC20 {
     constructor() Ownable(_msgSender()) {}
 
     /**
-     * @dev Recovers a `tokenAmount` of the ERC20 `tokenAddress` locked into this contract
+     * @dev Recovers a `tokenAmount` of the ERC-20 `tokenAddress` locked into this contract
      * and sends them to the `owner()` address.
      *
      * NOTE: restricting access to owner only. See `RecoverERC20::_recoverERC20`.

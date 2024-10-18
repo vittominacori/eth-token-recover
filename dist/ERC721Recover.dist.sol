@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 
-// Sources flattened with hardhat v2.22.11 https://hardhat.org
+// Sources flattened with hardhat v2.22.13 https://hardhat.org
 
 
 
-// File @openzeppelin/contracts/utils/Context.sol@v5.0.2
+// File @openzeppelin/contracts/utils/Context.sol@v5.1.0
 
 // Original license: SPDX_License_Identifier: MIT
 // OpenZeppelin Contracts (last updated v5.0.1) (utils/Context.sol)
@@ -36,7 +36,7 @@ abstract contract Context {
 }
 
 
-// File @openzeppelin/contracts/access/Ownable.sol@v5.0.2
+// File @openzeppelin/contracts/access/Ownable.sol@v5.1.0
 
 // Original license: SPDX_License_Identifier: MIT
 // OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)
@@ -138,16 +138,16 @@ abstract contract Ownable is Context {
 }
 
 
-// File @openzeppelin/contracts/utils/introspection/IERC165.sol@v5.0.2
+// File @openzeppelin/contracts/utils/introspection/IERC165.sol@v5.1.0
 
 // Original license: SPDX_License_Identifier: MIT
-// OpenZeppelin Contracts (last updated v5.0.0) (utils/introspection/IERC165.sol)
+// OpenZeppelin Contracts (last updated v5.1.0) (utils/introspection/IERC165.sol)
 
 pragma solidity ^0.8.20;
 
 /**
- * @dev Interface of the ERC165 standard, as defined in the
- * https://eips.ethereum.org/EIPS/eip-165[EIP].
+ * @dev Interface of the ERC-165 standard, as defined in the
+ * https://eips.ethereum.org/EIPS/eip-165[ERC].
  *
  * Implementers can declare support of contract interfaces, which can then be
  * queried by others ({ERC165Checker}).
@@ -158,7 +158,7 @@ interface IERC165 {
     /**
      * @dev Returns true if this contract implements the interface defined by
      * `interfaceId`. See the corresponding
-     * https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section]
+     * https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[ERC section]
      * to learn more about how these ids are created.
      *
      * This function call must use less than 30 000 gas.
@@ -167,15 +167,15 @@ interface IERC165 {
 }
 
 
-// File @openzeppelin/contracts/token/ERC721/IERC721.sol@v5.0.2
+// File @openzeppelin/contracts/token/ERC721/IERC721.sol@v5.1.0
 
 // Original license: SPDX_License_Identifier: MIT
-// OpenZeppelin Contracts (last updated v5.0.0) (token/ERC721/IERC721.sol)
+// OpenZeppelin Contracts (last updated v5.1.0) (token/ERC721/IERC721.sol)
 
 pragma solidity ^0.8.20;
 
 /**
- * @dev Required interface of an ERC721 compliant contract.
+ * @dev Required interface of an ERC-721 compliant contract.
  */
 interface IERC721 is IERC165 {
     /**
@@ -225,7 +225,7 @@ interface IERC721 is IERC165 {
 
     /**
      * @dev Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients
-     * are aware of the ERC721 protocol to prevent tokens from being forever locked.
+     * are aware of the ERC-721 protocol to prevent tokens from being forever locked.
      *
      * Requirements:
      *
@@ -244,7 +244,7 @@ interface IERC721 is IERC165 {
     /**
      * @dev Transfers `tokenId` token from `from` to `to`.
      *
-     * WARNING: Note that the caller is responsible to confirm that the recipient is capable of receiving ERC721
+     * WARNING: Note that the caller is responsible to confirm that the recipient is capable of receiving ERC-721
      * or else they may be permanently lost. Usage of {safeTransferFrom} prevents loss, though the caller must
      * understand this adds an external call which potentially creates a reentrancy vulnerability.
      *
@@ -312,11 +312,11 @@ pragma solidity ^0.8.20;
 
 /**
  * @title RecoverERC721
- * @dev Allows to recover any ERC721 token sent into the contract and send them to a receiver.
+ * @dev Allows to recover any ERC-721 token sent into the contract and sends them to a receiver.
  */
 abstract contract RecoverERC721 {
     /**
-     * @dev Recovers the `tokenId` of the ERC721 `tokenAddress` locked into this contract
+     * @dev Recovers the `tokenId` of the ERC-721 `tokenAddress` locked into this contract
      * and sends it to the `tokenReceiver` address.
      *
      * WARNING: it allows everyone to recover tokens. Access controls MUST be defined in derived contracts.
@@ -345,7 +345,7 @@ pragma solidity ^0.8.20;
 
 /**
  * @title ERC721Recover
- * @dev Allows the contract owner to recover any ERC721 token sent into the contract and send them to a receiver.
+ * @dev Allows the contract owner to recover any ERC-721 token sent into the contract and sends them to a receiver.
  */
 abstract contract ERC721Recover is Ownable, RecoverERC721 {
     /**
@@ -354,7 +354,7 @@ abstract contract ERC721Recover is Ownable, RecoverERC721 {
     constructor(address initialOwner) Ownable(initialOwner) {}
 
     /**
-     * @dev Recovers the `tokenId` of the ERC721 `tokenAddress` locked into this contract
+     * @dev Recovers the `tokenId` of the ERC-721 `tokenAddress` locked into this contract
      * and sends it to the `tokenReceiver` address.
      *
      * NOTE: restricting access to owner only. See `RecoverERC721::_recoverERC721`.

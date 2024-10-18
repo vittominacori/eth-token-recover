@@ -8,7 +8,7 @@ import {RecoverERC20} from "./recover/RecoverERC20.sol";
 
 /**
  * @title ERC20Recover
- * @dev Allows the contract owner to recover any ERC20 token sent into the contract and send them to a receiver.
+ * @dev Allows the contract owner to recover any ERC-20 token sent into the contract and sends them to a receiver.
  */
 abstract contract ERC20Recover is Ownable, RecoverERC20 {
     /**
@@ -17,7 +17,7 @@ abstract contract ERC20Recover is Ownable, RecoverERC20 {
     constructor(address initialOwner) Ownable(initialOwner) {}
 
     /**
-     * @dev Recovers a `tokenAmount` of the ERC20 `tokenAddress` locked into this contract
+     * @dev Recovers a `tokenAmount` of the ERC-20 `tokenAddress` locked into this contract
      * and sends them to the `tokenReceiver` address.
      *
      * NOTE: restricting access to owner only. See `RecoverERC20::_recoverERC20`.

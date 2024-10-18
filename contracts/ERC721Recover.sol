@@ -8,7 +8,7 @@ import {RecoverERC721} from "./recover/RecoverERC721.sol";
 
 /**
  * @title ERC721Recover
- * @dev Allows the contract owner to recover any ERC721 token sent into the contract and send them to a receiver.
+ * @dev Allows the contract owner to recover any ERC-721 token sent into the contract and sends them to a receiver.
  */
 abstract contract ERC721Recover is Ownable, RecoverERC721 {
     /**
@@ -17,7 +17,7 @@ abstract contract ERC721Recover is Ownable, RecoverERC721 {
     constructor(address initialOwner) Ownable(initialOwner) {}
 
     /**
-     * @dev Recovers the `tokenId` of the ERC721 `tokenAddress` locked into this contract
+     * @dev Recovers the `tokenId` of the ERC-721 `tokenAddress` locked into this contract
      * and sends it to the `tokenReceiver` address.
      *
      * NOTE: restricting access to owner only. See `RecoverERC721::_recoverERC721`.
