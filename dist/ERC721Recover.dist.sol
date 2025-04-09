@@ -4,7 +4,7 @@
 
 
 
-// File @openzeppelin/contracts/utils/Context.sol@v5.2.0
+// File @openzeppelin/contracts/utils/Context.sol@v5.3.0
 
 // Original license: SPDX_License_Identifier: MIT
 // OpenZeppelin Contracts (last updated v5.0.1) (utils/Context.sol)
@@ -36,7 +36,7 @@ abstract contract Context {
 }
 
 
-// File @openzeppelin/contracts/access/Ownable.sol@v5.2.0
+// File @openzeppelin/contracts/access/Ownable.sol@v5.3.0
 
 // Original license: SPDX_License_Identifier: MIT
 // OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)
@@ -138,7 +138,7 @@ abstract contract Ownable is Context {
 }
 
 
-// File @openzeppelin/contracts/utils/introspection/IERC165.sol@v5.2.0
+// File @openzeppelin/contracts/utils/introspection/IERC165.sol@v5.3.0
 
 // Original license: SPDX_License_Identifier: MIT
 // OpenZeppelin Contracts (last updated v5.1.0) (utils/introspection/IERC165.sol)
@@ -167,7 +167,7 @@ interface IERC165 {
 }
 
 
-// File @openzeppelin/contracts/token/ERC721/IERC721.sol@v5.2.0
+// File @openzeppelin/contracts/token/ERC721/IERC721.sol@v5.3.0
 
 // Original license: SPDX_License_Identifier: MIT
 // OpenZeppelin Contracts (last updated v5.1.0) (token/ERC721/IERC721.sol)

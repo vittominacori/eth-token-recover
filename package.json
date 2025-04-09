@@ -1,6 +1,6 @@
 {
   "name": "eth-token-recover",
-  "version": "6.5.0",
+  "version": "6.6.0",
   "description": "TokenRecover allows to recover any ERC20 or ERC721 token sent into the contract and sends them to a receiver.",
   "files": [
     "contracts",
@@ -45,23 +45,23 @@
   },
   "homepage": "https://vittominacori.github.io/eth-token-recover/",
   "dependencies": {
-    "@openzeppelin/contracts": "5.2.0"
+    "@openzeppelin/contracts": "5.3.0"
   },
   "devDependencies": {
-    "@eslint/compat": "^1.2.7",
-    "@eslint/eslintrc": "^3.3.0",
-    "@eslint/js": "^9.22.0",
+    "@eslint/compat": "^1.2.8",
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.24.0",
     "@nomiclabs/hardhat-truffle5": "^2.0.7",
     "@nomiclabs/hardhat-web3": "^2.0.1",
     "@openzeppelin/test-helpers": "^0.5.16",
     "chai": "^4.5.0",
-    "eslint": "^9.22.0",
+    "eslint": "^9.24.0",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-mocha-no-only": "^1.2.0",
     "globals": "^16.0.0",
     "graphlib": "^2.1.8",
     "hardhat": "^2.22.19",
-    "hardhat-exposed": "^0.3.17",
+    "hardhat-exposed": "^0.3.19",
     "hardhat-gas-reporter": "^2.2.2",
     "prettier": "^3.5.3",
     "prettier-plugin-solidity": "^1.4.2",
