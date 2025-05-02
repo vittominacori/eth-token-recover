@@ -5,7 +5,7 @@
 
 |  File Name  |  SHA-1 Hash  |
 |-------------|--------------|
-| dist/ERC721Recover.dist.sol | 04ab829e70083bb0cf16b160b0d939ceb9feb73d |
+| dist/ERC721Recover.dist.sol | b422d98b66f9581954b0e804b92abe65309acdba |
 
 
 ### Contracts Description Table
