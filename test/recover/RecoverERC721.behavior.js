@@ -1,5 +1,3 @@
-const { expect } = require('chai');
-
 function shouldBehaveLikeRecoverERC721(receiver, tokenId) {
   const data = '0x42';
 

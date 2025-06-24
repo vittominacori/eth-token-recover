@@ -1,5 +1,3 @@
-const { expect } = require('chai');
-
 function shouldBehaveLikeRecoverERC20(receiver, amount) {
   context('like a RecoverERC20', function () {
     describe('_recoverERC20', function () {

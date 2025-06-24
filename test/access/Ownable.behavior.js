@@ -1,8 +1,6 @@
 const { constants, expectEvent } = require('@openzeppelin/test-helpers');
 const { expectRevertCustomError } = require('../helpers/customError');
 
-const { expect } = require('chai');
-
 function shouldBehaveLikeOwnable(owner, other) {
   describe('like an Ownable', function () {
     it('has an owner', async function () {

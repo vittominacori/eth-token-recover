@@ -1,8 +1,6 @@
 const { BN } = require('@openzeppelin/test-helpers');
 const { expectRevertCustomError } = require('./helpers/customError');
 
-const { expect } = require('chai');
-
 const { shouldBehaveLikeRecoverERC20 } = require('./recover/RecoverERC20.behavior');
 const { shouldBehaveLikeRecoverERC721 } = require('./recover/RecoverERC721.behavior');
 
