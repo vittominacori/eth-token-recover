@@ -13,10 +13,26 @@ They can't be recovered, so it means money losses for end users.
 
 By using TokenRecover, any smart contract can offer users a robust solution for reclaiming mistakenly or erroneously sent tokens, enhancing the overall user experience and confidence in the decentralized ecosystem.
 
-## Install
+## Installation
+
+### Hardhat
 
 ```bash
-npm install eth-token-recover
+npm install erc-payable-token
+```
+
+### Foundry
+
+```bash
+forge install OpenZeppelin/openzeppelin-contracts
+forge install vittominacori/eth-token-recover
+```
+
+Add the below in `remappings.txt`:
+
+```bash
+@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/
+eth-token-recover/contracts/=lib/eth-token-recover/contracts/
 ```
 
 ## Recovers
