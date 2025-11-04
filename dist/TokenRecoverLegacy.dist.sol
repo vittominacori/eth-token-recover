@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 
-// Sources flattened with hardhat v2.26.3 https://hardhat.org
+// Sources flattened with hardhat v2.26.5 https://hardhat.org
 
 
 
-// File @openzeppelin/contracts/utils/Context.sol@v5.4.0
+// File @openzeppelin/contracts/utils/Context.sol@v5.5.0
 
 // Original license: SPDX_License_Identifier: MIT
 // OpenZeppelin Contracts (last updated v5.0.1) (utils/Context.sol)
@@ -36,7 +36,7 @@ abstract contract Context {
 }
 
 
-// File @openzeppelin/contracts/access/Ownable.sol@v5.4.0
+// File @openzeppelin/contracts/access/Ownable.sol@v5.5.0
 
 // Original license: SPDX_License_Identifier: MIT
 // OpenZeppelin Contracts (last updated v5.0.0) (access/Ownable.sol)
@@ -138,7 +138,7 @@ abstract contract Ownable is Context {
 }
 
 
-// File @openzeppelin/contracts/token/ERC20/IERC20.sol@v5.4.0
+// File @openzeppelin/contracts/token/ERC20/IERC20.sol@v5.5.0
 
 // Original license: SPDX_License_Identifier: MIT
 // OpenZeppelin Contracts (last updated v5.4.0) (token/ERC20/IERC20.sol)
