@@ -5,7 +5,7 @@
 
 |  File Name  |  SHA-1 Hash  |
 |-------------|--------------|
-| dist/TokenRecoverLegacy.dist.sol | eac5a63f676c2aeaad38b10a03091addf8eb6b27 |
+| dist/TokenRecoverLegacy.dist.sol | da2ad21a8aefbcf53a7d07a6950947e54e2aa37d |
 
 
 ### Contracts Description Table
